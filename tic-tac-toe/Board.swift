@@ -9,23 +9,32 @@
 import Foundation
 
 class Board {
-    private let cells: [Cell]
+    private var cells: [Cell]!
+    let rows: Int
+    let cols: Int
     
     var cellsCount: Int {
         return self.cells.count
     }
     
     init(rows: Int, cols: Int) {
-        
+        self.rows = rows
+        self.cols = cols
         var cells: [Cell] = []
-        
+
         for row in 0..<rows {
             for col in 0..<cols {
-                let cell = Cell(row: row, col: col)
+                let cell = Cell(row: row, col: col, board: self)
                 cells.append(cell)
             }
         }
         
         self.cells = cells
+    }
+    
+    func cellAtRow(row: Int, col: Int) -> Cell {
+        let idx = row * self.cols + col
+        assert(idx >= 0 && idx < self.cellsCount);
+        return self.cells[idx]
     }
 }

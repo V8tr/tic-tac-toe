@@ -8,14 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4871D6C8A260007537E /* AppDelegate.swift */; };
-		8814A48A1D6C8A260007537E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4891D6C8A260007537E /* ViewController.swift */; };
 		8814A48D1D6C8A260007537E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8814A48B1D6C8A260007537E /* Main.storyboard */; };
 		8814A48F1D6C8A260007537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8814A48E1D6C8A260007537E /* Assets.xcassets */; };
 		8814A4921D6C8A260007537E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8814A4901D6C8A260007537E /* LaunchScreen.storyboard */; };
 		8814A49D1D6C8A260007537E /* tic_tac_toeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A49C1D6C8A260007537E /* tic_tac_toeTests.swift */; };
-		8814A4A81D6C8BA30007537E /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4A71D6C8BA30007537E /* Board.swift */; };
-		8814A4AB1D6C8D970007537E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4AA1D6C8D970007537E /* Cell.swift */; };
-		8814A4AD1D6C92AC0007537E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4AC1D6C92AC0007537E /* BoardView.swift */; };
+		8814A4B61D6F12DA0007537E /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4B31D6F12DA0007537E /* Board.swift */; };
+		8814A4B71D6F12DA0007537E /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4B41D6F12DA0007537E /* BoardView.swift */; };
+		8814A4B81D6F12DA0007537E /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4B51D6F12DA0007537E /* Cell.swift */; };
+		8814A4BA1D6F16210007537E /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4B91D6F16210007537E /* BoardViewModel.swift */; };
+		8814A4BD1D6F171E0007537E /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4BC1D6F171E0007537E /* UIView+Additions.swift */; };
+		8814A4BF1D6F1C470007537E /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4BE1D6F1C470007537E /* GameViewController.swift */; };
+		8814A4C31D6F22090007537E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4C21D6F22090007537E /* Observable.swift */; };
+		8814A4C71D6F28130007537E /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4C61D6F28130007537E /* CellView.swift */; };
+		8814A4C91D6F2A3B0007537E /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4C81D6F2A3B0007537E /* CellViewModel.swift */; };
 		B3162E1EFD9C73C4D847A1DF /* Pods_tic_tac_toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */; };
 		F7F48A8044649957DADBEE2B /* Pods_tic_tac_toeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */; };
 /* End PBXBuildFile section */
@@ -35,7 +40,6 @@
 		32E7F58DD48D6BBCA94B2127 /* Pods-tic-tac-toe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toe.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toe/Pods-tic-tac-toe.release.xcconfig"; sourceTree = "<group>"; };
 		8814A4841D6C8A260007537E /* tic-tac-toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tic-tac-toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8814A4871D6C8A260007537E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8814A4891D6C8A260007537E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8814A48C1D6C8A260007537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8814A48E1D6C8A260007537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8814A4911D6C8A260007537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,9 +47,15 @@
 		8814A4981D6C8A260007537E /* tic-tac-toeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tic-tac-toeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8814A49C1D6C8A260007537E /* tic_tac_toeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tic_tac_toeTests.swift; sourceTree = "<group>"; };
 		8814A49E1D6C8A260007537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8814A4A71D6C8BA30007537E /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Board.swift; path = Model/Board.swift; sourceTree = "<group>"; };
-		8814A4AA1D6C8D970007537E /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cell.swift; path = Model/Cell.swift; sourceTree = "<group>"; };
-		8814A4AC1D6C92AC0007537E /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoardView.swift; path = UI/BoardView.swift; sourceTree = "<group>"; };
+		8814A4B31D6F12DA0007537E /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		8814A4B41D6F12DA0007537E /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		8814A4B51D6F12DA0007537E /* Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		8814A4B91D6F16210007537E /* BoardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
+		8814A4BC1D6F171E0007537E /* UIView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
+		8814A4BE1D6F1C470007537E /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8814A4C21D6F22090007537E /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		8814A4C61D6F28130007537E /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		8814A4C81D6F2A3B0007537E /* CellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 		A0660A645EC018B1B115DCA8 /* Pods-tic-tac-toeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C512A1D87A31888048D216F3 /* Pods-tic-tac-toeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,13 +125,11 @@
 		8814A4861D6C8A260007537E /* tic-tac-toe */ = {
 			isa = PBXGroup;
 			children = (
+				8814A4BB1D6F16790007537E /* Common */,
+				8814A4AF1D6F12980007537E /* Features */,
+				8814A4B01D6F12A30007537E /* Storyboards */,
 				8814A4871D6C8A260007537E /* AppDelegate.swift */,
-				8814A4891D6C8A260007537E /* ViewController.swift */,
-				8814A4AE1D6C92AF0007537E /* UI */,
-				8814A4A91D6C8D8C0007537E /* Model */,
-				8814A48B1D6C8A260007537E /* Main.storyboard */,
 				8814A48E1D6C8A260007537E /* Assets.xcassets */,
-				8814A4901D6C8A260007537E /* LaunchScreen.storyboard */,
 				8814A4931D6C8A260007537E /* Info.plist */,
 			);
 			path = "tic-tac-toe";
@@ -136,21 +144,68 @@
 			path = "tic-tac-toeTests";
 			sourceTree = "<group>";
 		};
-		8814A4A91D6C8D8C0007537E /* Model */ = {
+		8814A4AF1D6F12980007537E /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				8814A4A71D6C8BA30007537E /* Board.swift */,
-				8814A4AA1D6C8D970007537E /* Cell.swift */,
+				8814A4B11D6F12BD0007537E /* Board */,
+				8814A4B21D6F12CC0007537E /* Game */,
 			);
-			name = Model;
+			name = Features;
 			sourceTree = "<group>";
 		};
-		8814A4AE1D6C92AF0007537E /* UI */ = {
+		8814A4B01D6F12A30007537E /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				8814A4AC1D6C92AC0007537E /* BoardView.swift */,
+				8814A48B1D6C8A260007537E /* Main.storyboard */,
+				8814A4901D6C8A260007537E /* LaunchScreen.storyboard */,
 			);
-			name = UI;
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8814A4B11D6F12BD0007537E /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				8814A4C51D6F27790007537E /* Cell */,
+				8814A4C41D6F27750007537E /* Board */,
+			);
+			name = Board;
+			sourceTree = "<group>";
+		};
+		8814A4B21D6F12CC0007537E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				8814A4BE1D6F1C470007537E /* GameViewController.swift */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		8814A4BB1D6F16790007537E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8814A4BC1D6F171E0007537E /* UIView+Additions.swift */,
+				8814A4C21D6F22090007537E /* Observable.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		8814A4C41D6F27750007537E /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				8814A4B31D6F12DA0007537E /* Board.swift */,
+				8814A4B91D6F16210007537E /* BoardViewModel.swift */,
+				8814A4B41D6F12DA0007537E /* BoardView.swift */,
+			);
+			name = Board;
+			sourceTree = "<group>";
+		};
+		8814A4C51D6F27790007537E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8814A4B51D6F12DA0007537E /* Cell.swift */,
+				8814A4C81D6F2A3B0007537E /* CellViewModel.swift */,
+				8814A4C61D6F28130007537E /* CellView.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,11 +408,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8814A48A1D6C8A260007537E /* ViewController.swift in Sources */,
-				8814A4AB1D6C8D970007537E /* Cell.swift in Sources */,
-				8814A4AD1D6C92AC0007537E /* BoardView.swift in Sources */,
+				8814A4C91D6F2A3B0007537E /* CellViewModel.swift in Sources */,
+				8814A4C31D6F22090007537E /* Observable.swift in Sources */,
+				8814A4BF1D6F1C470007537E /* GameViewController.swift in Sources */,
+				8814A4B71D6F12DA0007537E /* BoardView.swift in Sources */,
+				8814A4B81D6F12DA0007537E /* Cell.swift in Sources */,
 				8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */,
-				8814A4A81D6C8BA30007537E /* Board.swift in Sources */,
+				8814A4B61D6F12DA0007537E /* Board.swift in Sources */,
+				8814A4BD1D6F171E0007537E /* UIView+Additions.swift in Sources */,
+				8814A4BA1D6F16210007537E /* BoardViewModel.swift in Sources */,
+				8814A4C71D6F28130007537E /* CellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

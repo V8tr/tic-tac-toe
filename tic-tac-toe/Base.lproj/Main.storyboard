@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="lJ0-PS-Rzm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Game View Controller-->
+        <scene sceneID="ILK-sZ-0tl">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lJ0-PS-Rzm" customClass="GameViewController" customModule="tic_tac_toe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="uJP-zR-ptM"/>
+                        <viewControllerLayoutGuide type="bottom" id="xcg-XJ-75I"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="jr5-fP-22E">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSp-Aa-Kj3">
+                                <rect key="frame" x="20" y="20" width="560" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eSp-Aa-Kj3" firstAttribute="top" secondItem="uJP-zR-ptM" secondAttribute="bottom" id="C6E-5X-mXi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eSp-Aa-Kj3" secondAttribute="trailing" id="VLO-oF-3MY"/>
+                            <constraint firstItem="xcg-XJ-75I" firstAttribute="top" secondItem="eSp-Aa-Kj3" secondAttribute="bottom" id="ked-gF-Bl4"/>
+                            <constraint firstItem="eSp-Aa-Kj3" firstAttribute="leading" secondItem="jr5-fP-22E" secondAttribute="leadingMargin" id="niU-BG-8NA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="boardContainerView" destination="eSp-Aa-Kj3" id="wtG-gK-GYT"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xnU-rL-Rbn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="521" y="543"/>
         </scene>
     </scenes>
 </document>
