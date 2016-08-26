@@ -12,9 +12,12 @@ import ReactiveCocoa
 import Result
 
 class CellView: UIView {
+    let tapSignal: Signal<Position, NoError>
+    
     private let viewModel: CellViewModel!
     private let invisibleButton: UIButton
-    
+    private let tapObserver: Observer<Position, NoError>
+
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }
@@ -23,21 +26,22 @@ class CellView: UIView {
         self.viewModel = viewModel
         invisibleButton = UIButton()
         invisibleButton.setTitle("INVISIBLE BUTTON", forState: .Normal)
-
+        
+        let (signal, observer) = Signal<Position, NoError>.pipe()
+        self.tapSignal = signal
+        self.tapObserver = observer
+        
         super.init(frame: CGRectZero)
         
         addSubview(invisibleButton)
+        invisibleButton.addTarget(self, action: #selector(didTap), forControlEvents: .TouchUpInside)
+
         invisibleButton.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
-        
-        testSignal()
     }
     
-    func testSignal() {
-        invisibleButton
-            .rac_signalForControlEvents(.TouchUpInside)
-            .subscribeNext { _ in ()
-        }
+    func didTap(button: UIButton!) {
+        self.tapObserver.sendNext(viewModel.position)
     }
 }

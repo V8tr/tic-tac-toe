@@ -33,7 +33,7 @@ class CellViewModel {
     
     func markBy(player: Player) {
         if (board.isValidMoveAt(cell.position, player: player)) {
-        
+            
         }
     }
     
