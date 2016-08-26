@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIView {
+    /// don't set a nib's owner. set a view's class to the one being loaded
     class func fromNib<T : UIView>() -> T {
         return NSBundle.mainBundle().loadNibNamed(String(T), owner: nil, options: nil)[0] as! T
     }
@@ -17,6 +18,7 @@ extension UIView {
         return String(self.dynamicType)
     }
     
+    /// set a view class as it's nib owner. don't set any class to the view itself
     func loadViewFromOwnedNib() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: nibName(), bundle: bundle)

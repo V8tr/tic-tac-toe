@@ -10,6 +10,7 @@ import Foundation
 
 class Board {
     private var cells: [Cell]!
+    var game: Game!
     let rows: Int
     let cols: Int
     
@@ -37,5 +38,9 @@ class Board {
         let idx = row * self.cols + col
         assert(idx >= 0 && idx < self.cellsCount);
         return self.cells[idx]
+    }
+    
+    func isValidMoveAt(position: Position, player: Player) -> Bool {
+        return true
     }
 }

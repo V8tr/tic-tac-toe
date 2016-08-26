@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import ReactiveCocoa
 
 class GameViewController: UIViewController {
     @IBOutlet weak var boardContainerView: UIView!
@@ -15,7 +16,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let activePlayer = Player(name: "V8tr", marker: .Cross)
         let board = Board(rows: 3, cols: 3)
+        let game = Game(players: [activePlayer], board: board)
+        game.activePlayer = activePlayer
+        
         let boardViewModel = BoardViewModel(board)
         let boardView = BoardView(viewModel: boardViewModel)
         
@@ -24,5 +29,11 @@ class GameViewController: UIViewController {
             make.center.equalTo(boardContainerView)
             make.size.equalTo(boardContainerView)
         }
+        
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        
     }
 }

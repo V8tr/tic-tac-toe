@@ -5,6 +5,7 @@ target 'tic-tac-toe' do
 
   # Pods for tic-tac-toe
   pod 'SnapKit'
+  pod 'ReactiveCocoa'
 
   target 'tic-tac-toeTests' do
     inherit! :search_paths

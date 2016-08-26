@@ -9,10 +9,10 @@
 import Foundation
 
 class Cell {
-    private let position: Position
-    private let board: Board
     var selection: Selection
-    
+    let position: Position
+    let board: Board
+
     init(position: Position, board: Board) {
         self.position = position
         self.board = board

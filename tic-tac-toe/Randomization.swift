@@ -1,5 +1,5 @@
 //
-//  RandomizationExtensions.swift
+//  Randomization
 //  tic-tac-toe
 //
 //  Created by Vadim Bulavin on 8/25/16.
