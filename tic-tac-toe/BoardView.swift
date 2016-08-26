@@ -12,6 +12,7 @@ import SnapKit
 class BoardView : UIView {
     private let viewModel: BoardViewModel!
     
+    // MARK: - init
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }
@@ -23,49 +24,46 @@ class BoardView : UIView {
         drawBoard()
     }
     
-    func drawBoard() {
-        let boardStack = UIStackView()
-        boardStack.distribution  = UIStackViewDistribution.EqualSpacing
+    // MARK: - drawing
+    private func drawBoard() {
         var rowStacks: [UIStackView] = []
 
         for row in 0..<viewModel.rows {
-            let rowStack = UIStackView()
-            rowStack.distribution  = UIStackViewDistribution.EqualSpacing
+            
             var rowCellViews: [CellView] = []
+            
             for col in 0..<viewModel.cols {
                 let cellViewModel = viewModel.cellViewModelAtRow(row, col: col)
                 let cellView = CellView(viewModel: cellViewModel)
                 cellView.backgroundColor = UIColor(red: CGFloat.random, green: CGFloat.random, blue: CGFloat.random, alpha: 1.0)
-                
                 rowCellViews.append(cellView)
-//                self.addSubview(cellView)
-//                cellView.snp_makeConstraints(closure: { (make) in
-//                    make.width.equalTo(self).dividedBy(viewModel.cols)
-//                    make.height.equalTo(self).dividedBy(viewModel.rows)
-//                    make.left.equalTo(self).offset(self.bounds.size.width / CGFloat(col + 1))
-//                    make.top.equalTo(self).dividedBy(self.bounds.size.height / CGFloat(row + 1))
-//                })
             }
 
-            for cellView in rowCellViews {
-                rowStack.addArrangedSubview(cellView)
-            }
-//            addSubview(rowStack)
+            let rowStack = rowStackWithCellView(rowCellViews)
             rowStacks.append(rowStack)
         }
         
-        for stack in rowStacks {
-            boardStack.addArrangedSubview(stack)
-        }
+        let boardStack = boardStackWithRowStacks(rowStacks)
         addSubview(boardStack)
+        
         boardStack.snp_makeConstraints { (make) in
-            make.size.equalTo(self)
-            make.center.equalTo(self)
+            make.edges.equalTo(self)
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
+    private func rowStackWithCellView(cellViews: [CellView]) -> UIStackView {
+        let rowStack = UIStackView(arrangedSubviews: cellViews)
+        rowStack.distribution  = .FillEqually
+        rowStack.axis = .Horizontal
+        rowStack.alignment = .Fill
+        return rowStack
+    }
+    
+    private func boardStackWithRowStacks(rowStacks: [UIStackView]) -> UIStackView {
+        let boardStack = UIStackView(arrangedSubviews: rowStacks)
+        boardStack.distribution  = .FillEqually
+        boardStack.axis = .Vertical
+        boardStack.alignment = .Fill
+        return boardStack
     }
 }

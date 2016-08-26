@@ -9,13 +9,29 @@
 import Foundation
 
 class Cell {
-    let row: Int
-    let col: Int
+    private let position: Position
     private let board: Board
+    var selection: Selection
     
-    init(row: Int, col: Int, board: Board) {
-        self.row = row
-        self.col = col
+    init(position: Position, board: Board) {
+        self.position = position
         self.board = board
+        self.selection = .Empty
+    }
+    
+    func mark(marker: Marker) {
+        selection = .Marked(marker)
+    }
+    
+    func clearMarker() {
+        selection = .Empty
+    }
+    
+    var row: Int {
+        return position.row
+    }
+    
+    var col: Int {
+        return position.col
     }
 }

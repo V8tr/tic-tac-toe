@@ -24,7 +24,8 @@ class Board {
 
         for row in 0..<rows {
             for col in 0..<cols {
-                let cell = Cell(row: row, col: col, board: self)
+                let position = Position(row: row, col: col)
+                let cell = Cell(position: position, board: self)
                 cells.append(cell)
             }
         }

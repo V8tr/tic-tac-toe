@@ -22,6 +22,9 @@
 		8814A4C71D6F28130007537E /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4C61D6F28130007537E /* CellView.swift */; };
 		8814A4C91D6F2A3B0007537E /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4C81D6F2A3B0007537E /* CellViewModel.swift */; };
 		8814A4CB1D6F42800007537E /* RandomizationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4CA1D6F42800007537E /* RandomizationExtensions.swift */; };
+		8814A4CD1D70334F0007537E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4CC1D70334F0007537E /* Position.swift */; };
+		8814A4CF1D70343F0007537E /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4CE1D70343F0007537E /* Marker.swift */; };
+		8814A4D11D7035910007537E /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4D01D7035910007537E /* Selection.swift */; };
 		B3162E1EFD9C73C4D847A1DF /* Pods_tic_tac_toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */; };
 		F7F48A8044649957DADBEE2B /* Pods_tic_tac_toeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,9 @@
 		8814A4C61D6F28130007537E /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		8814A4C81D6F2A3B0007537E /* CellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 		8814A4CA1D6F42800007537E /* RandomizationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizationExtensions.swift; sourceTree = "<group>"; };
+		8814A4CC1D70334F0007537E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8814A4CE1D70343F0007537E /* Marker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		8814A4D01D7035910007537E /* Selection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
 		A0660A645EC018B1B115DCA8 /* Pods-tic-tac-toeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C512A1D87A31888048D216F3 /* Pods-tic-tac-toeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +193,9 @@
 				8814A4BC1D6F171E0007537E /* UIView+Additions.swift */,
 				8814A4C21D6F22090007537E /* Observable.swift */,
 				8814A4CA1D6F42800007537E /* RandomizationExtensions.swift */,
+				8814A4CC1D70334F0007537E /* Position.swift */,
+				8814A4CE1D70343F0007537E /* Marker.swift */,
+				8814A4D01D7035910007537E /* Selection.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -411,14 +420,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8814A4D11D7035910007537E /* Selection.swift in Sources */,
 				8814A4C91D6F2A3B0007537E /* CellViewModel.swift in Sources */,
 				8814A4C31D6F22090007537E /* Observable.swift in Sources */,
+				8814A4CD1D70334F0007537E /* Position.swift in Sources */,
 				8814A4BF1D6F1C470007537E /* GameViewController.swift in Sources */,
 				8814A4B71D6F12DA0007537E /* BoardView.swift in Sources */,
 				8814A4B81D6F12DA0007537E /* Cell.swift in Sources */,
 				8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */,
 				8814A4B61D6F12DA0007537E /* Board.swift in Sources */,
 				8814A4CB1D6F42800007537E /* RandomizationExtensions.swift in Sources */,
+				8814A4CF1D70343F0007537E /* Marker.swift in Sources */,
 				8814A4BD1D6F171E0007537E /* UIView+Additions.swift in Sources */,
 				8814A4BA1D6F16210007537E /* BoardViewModel.swift in Sources */,
 				8814A4C71D6F28130007537E /* CellView.swift in Sources */,

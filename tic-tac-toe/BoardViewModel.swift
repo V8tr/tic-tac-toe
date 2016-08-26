@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct BoardViewModel {
+class BoardViewModel {
     let rows: Int
     let cols: Int
     private var cellsViewModels: [CellViewModel]!
