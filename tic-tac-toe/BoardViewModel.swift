@@ -31,19 +31,23 @@ class BoardViewModel {
         for row in 0..<board.rows {
             for col in 0..<board.cols {
                 let cell = board.cellAtRow(row, col: col)
-                let cellViewModel = CellViewModel(cell: cell)
-                
-                cellViewModel.selection.producer
-                    .observeOn(UIScheduler())
-                    .skip(1)
-                    .startWithNext { [unowned self] _ in
-                        self.selectionChangesObserver.sendNext(cellViewModel.position)
-                }
-                
-                cellsViewModels.append(cellViewModel)
+                cellsViewModels.append(createCellViewModel(cell))
             }
         }
         self.cellsViewModels = cellsViewModels
+    }
+    
+    private func createCellViewModel(cell: Cell) -> CellViewModel {
+        let cellViewModel = CellViewModel(cell: cell)
+        
+        cellViewModel.selection.producer
+            .observeOn(UIScheduler())
+            .skip(1)
+            .startWithNext { [unowned self] _ in
+                self.selectionChangesObserver.sendNext(cellViewModel.position)
+        }
+        
+        return cellViewModel
     }
     
     func cellViewModelAtRow(row: Int, col: Int) -> CellViewModel {

@@ -14,7 +14,6 @@ class CellView: UIView {
     @IBOutlet weak var invisibleButton: UIButton!
     @IBOutlet weak var markerImageView: UIImageView!
     
-    private var view: UIView!
     private var tapAction: CocoaAction!
     
     var viewModel: CellViewModel! {
