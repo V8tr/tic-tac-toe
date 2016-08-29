@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Selection: Equatable {
+enum Selection {
     case Empty
     case Marked(Marker)
     
@@ -17,16 +17,5 @@ enum Selection: Equatable {
         case .Marked(let mark): return mark.imageName()
         case .Empty: return nil
         }
-    }
-}
-
-func == (lhs: Selection, rhs: Selection) -> Bool {
-    switch (lhs, rhs) {
-    case (.Empty, .Empty):
-        return true
-    case (.Marked(let m1), .Marked(let m2)):
-        return m1 == m2
-    default:
-        return false
     }
 }

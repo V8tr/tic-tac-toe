@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum GameResult {
+    case InProgress
+    case Draw
+    case Win(Player)
+}
+
 class Game {
     let players: [Player]
     var activePlayer: Player!
@@ -17,5 +23,9 @@ class Game {
         self.players = players
         self.board = board
         self.board.game = self
+    }
+    
+    func gameResult() -> GameResult {
+        return board.gameResult()
     }
 }

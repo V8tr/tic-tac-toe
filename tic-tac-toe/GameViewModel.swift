@@ -49,7 +49,7 @@ class GameViewModel {
     }
     
     private func isGameOver() -> Bool {
-        return false
+        return game.gameResult() != .InProgress
     }
     
     private func nextPlayer() -> Player {

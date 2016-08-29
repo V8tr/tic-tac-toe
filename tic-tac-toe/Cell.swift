@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct Position {
+    let row: Int
+    let col: Int
+}
+
 class Cell {
     var selection: Selection
     let position: Position

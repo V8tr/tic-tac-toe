@@ -9,16 +9,20 @@
 import Foundation
 
 class Board {
-    private var cells: [Cell]!
     var game: Game!
     let rows: Int
     let cols: Int
     
+    private var cells: [Cell]!
+    private let analyzer: BoardAnalyzer
+    
     init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
+        self.analyzer = BoardAnalyzer()
+        
         var cells: [Cell] = []
-
+        
         for row in 0..<rows {
             for col in 0..<cols {
                 let position = Position(row: row, col: col)
@@ -47,5 +51,9 @@ class Board {
     func isValidMoveAt(position: Position) -> Bool {
         let cell = cellAtRow(position.row, col: position.col)
         return cell.isEmpty
+    }
+    
+    func gameResult() -> GameResult {
+        return analyzer.gameResult(cells)
     }
 }
