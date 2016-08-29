@@ -9,7 +9,6 @@
 import UIKit
 import SnapKit
 import ReactiveCocoa
-import Result
 
 class CellView: UIView {
     @IBOutlet weak var invisibleButton: UIButton!

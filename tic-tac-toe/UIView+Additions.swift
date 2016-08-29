@@ -14,10 +14,6 @@ extension UIView {
         return NSBundle.mainBundle().loadNibNamed(String(T), owner: nil, options: nil)[0] as! T
     }
     
-    func nibName() -> String {
-        return String(self.dynamicType)
-    }
-    
     /// set a view class as it's nib owner. don't set any class to the view itself. 
     /// your view will act as a content view
     func loadViewFromNib() -> UIView {
@@ -29,5 +25,9 @@ extension UIView {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
         return view
+    }
+    
+    func nibName() -> String {
+        return String(self.dynamicType)
     }
 }

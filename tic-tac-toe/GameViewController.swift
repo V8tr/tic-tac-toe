@@ -12,26 +12,28 @@ import ReactiveCocoa
 
 class GameViewController: UIViewController {
     @IBOutlet weak var boardContainerView: UIView!
+    
+    var viewModel: GameViewModel! {
+        didSet {
+            bindViewModel()
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let activePlayer = Player(name: "V8tr", marker: .Circle)
-        let board = Board(rows: 3, cols: 3)
-        let game = Game(players: [activePlayer], board: board)
-        game.activePlayer = activePlayer
         
-        let boardViewModel = BoardViewModel(board)
-        let boardView = BoardView(viewModel: boardViewModel)
-        
+        let boardView = BoardView(viewModel: viewModel.boardViewModel)
         boardContainerView.addSubview(boardView)
+        
         boardView.snp_makeConstraints { (make) in
             make.center.equalTo(boardContainerView)
             make.width.equalTo(boardContainerView)
             make.height.equalTo(boardContainerView.snp_width)
         }
-        
-        bindViewModel()
     }
     
     private func bindViewModel() {

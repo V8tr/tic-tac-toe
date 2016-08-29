@@ -22,6 +22,7 @@ class CellViewModel {
             if (self.board.isValidMoveAt(self.position)) {
                 let newSelection = Selection.Marked(self.board.activeMarker)
                 self.selection.swap(newSelection)
+                self.cell.mark(self.board.activeMarker)
             }
             return SignalProducer.empty
         }

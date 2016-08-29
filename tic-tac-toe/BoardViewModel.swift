@@ -8,21 +8,38 @@
 
 import Foundation
 import ReactiveCocoa
+import Result
 
 class BoardViewModel {
     let rows: Int
     let cols: Int
+    let selectionChangesSignal: Signal<Position, NoError>
+    
     private var cellsViewModels: [CellViewModel]!
     
+    private let selectionChangesObserver: Observer<Position, NoError>
+
     init(_ board: Board) {
         self.rows = board.rows
         self.cols = board.cols
+        
+        let (selectionSignal, selectionObserver) = Signal<Position, NoError>.pipe()
+        self.selectionChangesSignal = selectionSignal
+        self.selectionChangesObserver = selectionObserver
         
         var cellsViewModels: [CellViewModel] = []
         for row in 0..<board.rows {
             for col in 0..<board.cols {
                 let cell = board.cellAtRow(row, col: col)
                 let cellViewModel = CellViewModel(cell: cell)
+                
+                cellViewModel.selection.producer
+                    .observeOn(UIScheduler())
+                    .skip(1)
+                    .startWithNext { [unowned self] _ in
+                        self.selectionChangesObserver.sendNext(cellViewModel.position)
+                }
+                
                 cellsViewModels.append(cellViewModel)
             }
         }

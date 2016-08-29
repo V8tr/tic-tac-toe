@@ -30,4 +30,8 @@ class Cell {
     var col: Int {
         return position.col
     }
+    
+    var isEmpty: Bool {
+        return selection == .Empty
+    }
 }

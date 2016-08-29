@@ -9,7 +9,7 @@
         <!--Game View Controller-->
         <scene sceneID="ILK-sZ-0tl">
             <objects>
-                <viewController id="lJ0-PS-Rzm" customClass="GameViewController" customModule="tic_tac_toe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="lJ0-PS-Rzm" customClass="GameViewController" customModule="tic_tac_toe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uJP-zR-ptM"/>
                         <viewControllerLayoutGuide type="bottom" id="xcg-XJ-75I"/>

@@ -45,6 +45,7 @@ class Board {
     }
     
     func isValidMoveAt(position: Position) -> Bool {
-        return true
+        let cell = cellAtRow(position.row, col: position.col)
+        return cell.isEmpty
     }
 }

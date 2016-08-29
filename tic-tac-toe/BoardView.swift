@@ -30,13 +30,12 @@ class BoardView : UIView {
         var rowStacks: [UIStackView] = []
 
         for row in 0..<viewModel.rows {
-            
             var rowCellViews: [CellView] = []
             
             for col in 0..<viewModel.cols {
                 rowCellViews.append(createCellViewAtRow(row, col: col))
             }
-
+            
             let rowStack = createRowStackWithCellView(rowCellViews)
             rowStacks.append(rowStack)
         }

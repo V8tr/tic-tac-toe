@@ -27,6 +27,8 @@
 		8814A4F21D70899D0007537E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4F11D70899D0007537E /* Player.swift */; };
 		8814A4F41D708E130007537E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4F31D708E130007537E /* Game.swift */; };
 		8814A4F61D7457300007537E /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8814A4F51D7457300007537E /* CellView.xib */; };
+		8814A4F81D746AFF0007537E /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4F71D746AFF0007537E /* GameViewModel.swift */; };
+		8814A4FA1D746D9E0007537E /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4F91D746D9E0007537E /* UIViewController+Additions.swift */; };
 		B3162E1EFD9C73C4D847A1DF /* Pods_tic_tac_toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */; };
 		F7F48A8044649957DADBEE2B /* Pods_tic_tac_toeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		8814A4F11D70899D0007537E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8814A4F31D708E130007537E /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8814A4F51D7457300007537E /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		8814A4F71D746AFF0007537E /* GameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		8814A4F91D746D9E0007537E /* UIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		A0660A645EC018B1B115DCA8 /* Pods-tic-tac-toeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C512A1D87A31888048D216F3 /* Pods-tic-tac-toeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 			children = (
 				8814A4E51D7072D30007537E /* CellViewModel.swift */,
 				8814A4E41D7072D30007537E /* BoardViewModel.swift */,
+				8814A4F71D746AFF0007537E /* GameViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			children = (
 				8814A4E81D7072E40007537E /* Randomization.swift */,
 				8814A4E91D7072E40007537E /* UIView+Additions.swift */,
+				8814A4F91D746D9E0007537E /* UIViewController+Additions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -423,6 +429,8 @@
 				8814A4F41D708E130007537E /* Game.swift in Sources */,
 				8814A4DE1D7072AD0007537E /* Selection.swift in Sources */,
 				8814A4DD1D7072AD0007537E /* Position.swift in Sources */,
+				8814A4FA1D746D9E0007537E /* UIViewController+Additions.swift in Sources */,
+				8814A4F81D746AFF0007537E /* GameViewModel.swift in Sources */,
 				8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */,
 				8814A4F21D70899D0007537E /* Player.swift in Sources */,
 				8814A4DB1D7072AD0007537E /* Cell.swift in Sources */,
