@@ -37,33 +37,26 @@ class BoardView : UIView {
                 rowCellViews.append(createCellViewAtRow(row, col: col))
             }
 
-            let rowStack = rowStackWithCellView(rowCellViews)
+            let rowStack = createRowStackWithCellView(rowCellViews)
             rowStacks.append(rowStack)
         }
         
-        let boardStack = boardStackWithRowStacks(rowStacks)
+        let boardStack = createBoardStackWithRowStacks(rowStacks)
         addSubview(boardStack)
         
-        boardStack.snp_makeConstraints { (make) in
+        boardStack.snp_makeConstraints { make in
             make.edges.equalTo(self)
         }
     }
     
     private func createCellViewAtRow(row: Int, col: Int) -> CellView {
-        let cellViewModel = viewModel.cellViewModelAtRow(row, col: col)
-        let cellView = CellView(viewModel: cellViewModel)
-        
-//        cellView.tapSignal
-//            .observeOn(UIScheduler())
-//            .observeNext { position in
-//            <#code#>
-//        }
-        
+        let cellView = CellView.fromNib() as CellView
+        cellView.viewModel = viewModel.cellViewModelAtRow(row, col: col)
         cellView.backgroundColor = UIColor(red: CGFloat.random, green: CGFloat.random, blue: CGFloat.random, alpha: 1.0)
         return cellView
     }
     
-    private func rowStackWithCellView(cellViews: [CellView]) -> UIStackView {
+    private func createRowStackWithCellView(cellViews: [CellView]) -> UIStackView {
         let rowStack = UIStackView(arrangedSubviews: cellViews)
         rowStack.distribution  = .FillEqually
         rowStack.axis = .Horizontal
@@ -71,7 +64,7 @@ class BoardView : UIView {
         return rowStack
     }
     
-    private func boardStackWithRowStacks(rowStacks: [UIStackView]) -> UIStackView {
+    private func createBoardStackWithRowStacks(rowStacks: [UIStackView]) -> UIStackView {
         let boardStack = UIStackView(arrangedSubviews: rowStacks)
         boardStack.distribution  = .FillEqually
         boardStack.axis = .Vertical

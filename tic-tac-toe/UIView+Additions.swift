@@ -18,8 +18,9 @@ extension UIView {
         return String(self.dynamicType)
     }
     
-    /// set a view class as it's nib owner. don't set any class to the view itself
-    func loadViewFromOwnedNib() -> UIView {
+    /// set a view class as it's nib owner. don't set any class to the view itself. 
+    /// your view will act as a content view
+    func loadViewFromNib() -> UIView {
         let bundle = NSBundle(forClass: self.dynamicType)
         let nib = UINib(nibName: nibName(), bundle: bundle)
         let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView

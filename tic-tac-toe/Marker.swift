@@ -11,4 +11,11 @@ import Foundation
 enum Marker: Equatable {
     case Circle
     case Cross
+    
+    func imageName() -> String {
+        switch self {
+        case .Cross: return "cross"
+        case .Circle: return "circle"
+        }
+    }
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CellView" customModule="tic_tac_toe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dFJ-tE-wZb">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0z-cg-EOa">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="H0z-cg-EOa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="D4e-zZ-4kB"/>
+                <constraint firstAttribute="trailing" secondItem="H0z-cg-EOa" secondAttribute="trailing" id="HgN-4g-KpG"/>
+                <constraint firstAttribute="trailing" secondItem="dFJ-tE-wZb" secondAttribute="trailing" id="S88-qt-HoK"/>
+                <constraint firstAttribute="bottom" secondItem="H0z-cg-EOa" secondAttribute="bottom" id="kWe-bD-Ocv"/>
+                <constraint firstItem="dFJ-tE-wZb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="q47-p3-tSL"/>
+                <constraint firstItem="H0z-cg-EOa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rII-1K-5wb"/>
+                <constraint firstAttribute="bottom" secondItem="dFJ-tE-wZb" secondAttribute="bottom" id="w2Q-aL-yj3"/>
+                <constraint firstItem="dFJ-tE-wZb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="xXe-zL-wHB"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="invisibleButton" destination="H0z-cg-EOa" id="uR6-mo-SKx"/>
+                <outlet property="markerImageView" destination="dFJ-tE-wZb" id="ipZ-SG-Vet"/>
+            </connections>
+            <point key="canvasLocation" x="391" y="330"/>
+        </view>
+    </objects>
+</document>

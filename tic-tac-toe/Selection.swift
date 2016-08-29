@@ -11,6 +11,13 @@ import Foundation
 enum Selection: Equatable {
     case Empty
     case Marked(Marker)
+    
+    func imageName() -> String? {
+        switch self {
+        case .Marked(let mark): return mark.imageName()
+        case .Empty: return nil
+        }
+    }
 }
 
 func == (lhs: Selection, rhs: Selection) -> Bool {

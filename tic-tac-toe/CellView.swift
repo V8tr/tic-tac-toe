@@ -11,30 +11,32 @@ import SnapKit
 import ReactiveCocoa
 import Result
 
-class CellView: UIView {    
-    private let viewModel: CellViewModel!
-    private let invisibleButton: UIButton
-    private var tapAction: CocoaAction
-
-    required init(coder aDecoder: NSCoder) {
-        fatalError("This class does not support NSCoding")
-    }
+class CellView: UIView {
+    @IBOutlet weak var invisibleButton: UIButton!
+    @IBOutlet weak var markerImageView: UIImageView!
     
-    init(viewModel: CellViewModel) {
-        self.viewModel = viewModel
-        self.tapAction = CocoaAction(viewModel.tapAction, { _ in () })
-        
-        invisibleButton = UIButton()
-        
-        super.init(frame: CGRectZero)
-        
-        invisibleButton.setTitle("INVISIBLE BUTTON", forState: .Normal)
-        invisibleButton.addTarget(tapAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
-        addSubview(invisibleButton)
-
-        invisibleButton.snp_makeConstraints { (make) in
-            make.edges.equalTo(self)
+    private var view: UIView!
+    private var tapAction: CocoaAction!
+    
+    var viewModel: CellViewModel! {
+        didSet {
+            bindViewModel()
         }
     }
+    
+    private func bindViewModel() {
+        tapAction = CocoaAction(viewModel.tapAction, { _ in () })
 
+        invisibleButton.addTarget(tapAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
+        
+        viewModel.selection.producer
+            .observeOn(UIScheduler())
+            .startWithNext { [weak self] selection in
+                var image: UIImage? = nil
+                if let imageName = selection.imageName() {
+                    image = UIImage(named: imageName)
+                }
+                self?.markerImageView.image = image
+        }
+    }
 }

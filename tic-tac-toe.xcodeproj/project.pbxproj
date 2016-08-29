@@ -26,6 +26,7 @@
 		8814A4F01D70732C0007537E /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4EF1D70732C0007537E /* CellView.swift */; };
 		8814A4F21D70899D0007537E /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4F11D70899D0007537E /* Player.swift */; };
 		8814A4F41D708E130007537E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4F31D708E130007537E /* Game.swift */; };
+		8814A4F61D7457300007537E /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8814A4F51D7457300007537E /* CellView.xib */; };
 		B3162E1EFD9C73C4D847A1DF /* Pods_tic_tac_toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */; };
 		F7F48A8044649957DADBEE2B /* Pods_tic_tac_toeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		8814A4EF1D70732C0007537E /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		8814A4F11D70899D0007537E /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		8814A4F31D708E130007537E /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8814A4F51D7457300007537E /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
 		A0660A645EC018B1B115DCA8 /* Pods-tic-tac-toeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C512A1D87A31888048D216F3 /* Pods-tic-tac-toeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,8 +185,8 @@
 		8814A4D41D70729C0007537E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				8814A4E41D7072D30007537E /* BoardViewModel.swift */,
 				8814A4E51D7072D30007537E /* CellViewModel.swift */,
+				8814A4E41D7072D30007537E /* BoardViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -209,6 +211,7 @@
 		8814A4EE1D7072F10007537E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8814A4F51D7457300007537E /* CellView.xib */,
 				8814A4EF1D70732C0007537E /* CellView.swift */,
 				8814A4DF1D7072BD0007537E /* BoardView.swift */,
 			);
@@ -302,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8814A4F61D7457300007537E /* CellView.xib in Resources */,
 				8814A4921D6C8A260007537E /* LaunchScreen.storyboard in Resources */,
 				8814A48F1D6C8A260007537E /* Assets.xcassets in Resources */,
 				8814A48D1D6C8A260007537E /* Main.storyboard in Resources */,

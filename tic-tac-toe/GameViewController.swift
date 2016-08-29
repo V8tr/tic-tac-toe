@@ -27,7 +27,8 @@ class GameViewController: UIViewController {
         boardContainerView.addSubview(boardView)
         boardView.snp_makeConstraints { (make) in
             make.center.equalTo(boardContainerView)
-            make.size.equalTo(boardContainerView)
+            make.width.equalTo(boardContainerView)
+            make.height.equalTo(boardContainerView.snp_width)
         }
         
         bindViewModel()
