@@ -8,10 +8,11 @@
 
 import UIKit
 import SnapKit
+import ReactiveCocoa
 
 class BoardView : UIView {
     private let viewModel: BoardViewModel!
-    
+        
     // MARK: - init
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
@@ -33,10 +34,7 @@ class BoardView : UIView {
             var rowCellViews: [CellView] = []
             
             for col in 0..<viewModel.cols {
-                let cellViewModel = viewModel.cellViewModelAtRow(row, col: col)
-                let cellView = CellView(viewModel: cellViewModel)
-                cellView.backgroundColor = UIColor(red: CGFloat.random, green: CGFloat.random, blue: CGFloat.random, alpha: 1.0)
-                rowCellViews.append(cellView)
+                rowCellViews.append(createCellViewAtRow(row, col: col))
             }
 
             let rowStack = rowStackWithCellView(rowCellViews)
@@ -49,6 +47,20 @@ class BoardView : UIView {
         boardStack.snp_makeConstraints { (make) in
             make.edges.equalTo(self)
         }
+    }
+    
+    private func createCellViewAtRow(row: Int, col: Int) -> CellView {
+        let cellViewModel = viewModel.cellViewModelAtRow(row, col: col)
+        let cellView = CellView(viewModel: cellViewModel)
+        
+//        cellView.tapSignal
+//            .observeOn(UIScheduler())
+//            .observeNext { position in
+//            <#code#>
+//        }
+        
+        cellView.backgroundColor = UIColor(red: CGFloat.random, green: CGFloat.random, blue: CGFloat.random, alpha: 1.0)
+        return cellView
     }
     
     private func rowStackWithCellView(cellViews: [CellView]) -> UIStackView {

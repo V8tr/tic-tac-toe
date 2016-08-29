@@ -7,34 +7,31 @@
 //
 
 import Foundation
+import ReactiveCocoa
 
 class CellViewModel {
     let position: Position
+    let selection: MutableProperty<Selection>
+    
     private let cell: Cell
     private let board: Board
-
-    var selection: Selection {
-        didSet {
-            switch selection {
-            case .Marked(let marker):
-                cell.mark(marker)
-            case .Empty:
-                cell.clearMarker()
+    
+    // Actions
+    lazy var tapAction: Action<Void, Void, NSError> = { [unowned self] in
+        return Action { _ in
+            if (self.board.isValidMoveAt(self.position)) {
+                let newSelection = Selection.Marked(self.board.activeMarker)
+                self.selection.swap(newSelection)
             }
+            return SignalProducer.empty
         }
-    }
+    }()
 
     init(cell: Cell) {
         self.position = cell.position
-        self.selection = cell.selection
+        self.selection = MutableProperty(cell.selection)
         self.cell = cell
         self.board = cell.board
-    }
-    
-    func markBy(player: Player) {
-        if (board.isValidMoveAt(cell.position, player: player)) {
-            
-        }
     }
     
     var row: Int {

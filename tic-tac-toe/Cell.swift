@@ -22,11 +22,7 @@ class Cell {
     func mark(marker: Marker) {
         selection = .Marked(marker)
     }
-    
-    func clearMarker() {
-        selection = .Empty
-    }
-    
+
     var row: Int {
         return position.row
     }

@@ -14,10 +14,6 @@ class Board {
     let rows: Int
     let cols: Int
     
-    var cellsCount: Int {
-        return self.cells.count
-    }
-    
     init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
@@ -40,7 +36,15 @@ class Board {
         return self.cells[idx]
     }
     
-    func isValidMoveAt(position: Position, player: Player) -> Bool {
+    var cellsCount: Int {
+        return self.cells.count
+    }
+    
+    var activeMarker: Marker {
+        return game.activePlayer.marker
+    }
+    
+    func isValidMoveAt(position: Position) -> Bool {
         return true
     }
 }

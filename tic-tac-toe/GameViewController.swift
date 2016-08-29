@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let activePlayer = Player(name: "V8tr", marker: .Cross)
+        let activePlayer = Player(name: "V8tr", marker: .Circle)
         let board = Board(rows: 3, cols: 3)
         let game = Game(players: [activePlayer], board: board)
         game.activePlayer = activePlayer
