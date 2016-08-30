@@ -27,9 +27,7 @@ class CellViewModel {
     lazy var tapAction: Action<Void, Void, NSError> = { [unowned self] in
         return Action { _ in
             if (self.board.isValidMoveAt(self.position)) {
-                self.cell.mark(self.board.activeMarker)
-                let newSelection = Selection.Marked(self.board.activeMarker)
-                self.selection.swap(newSelection)
+                self.mark(self.board.activeMarker)
             }
             return SignalProducer.empty
         }
@@ -40,6 +38,12 @@ class CellViewModel {
         self.selection = MutableProperty(cell.selection)
         self.cell = cell
         self.board = cell.board
+    }
+    
+    func mark(marker: Marker) {
+        cell.mark(marker)
+        let newSelection = Selection.Marked(self.board.activeMarker)
+        self.selection.swap(newSelection)
     }
     
     var row: Int {

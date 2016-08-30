@@ -39,14 +39,16 @@ class GameViewController: UIViewController {
     private func bindViewModel() {
         viewModel.gameOverSignal
             .observeOn(UIScheduler())
-            .observeNext { gameResult in
+            .observeNext { [weak self] gameResult in
+                guard let strongSelf = self else { return }
+                
                 switch gameResult {
                 case .InProgress:
                     break
                 case .Draw:
-                    self.draw()
+                    strongSelf.draw()
                 case .Win(let player):
-                    self.win(player)
+                    strongSelf.win(player)
                 }
         }
     }

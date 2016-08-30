@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let players = [
             Player(name: "V8tr", marker: .Circle),
-            Player(name: "Dude", marker: .Cross)
+            AIPlayer(name: "Dude", marker: .Cross)
         ]
         let board = Board(rows: 3, cols: 3)
         let game = Game(players: players, board: board)

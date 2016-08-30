@@ -37,6 +37,11 @@ class BoardViewModel {
         self.cellsViewModels = cellsViewModels
     }
     
+    func markPosition(position: Position, marker: Marker) {
+        let cellViewModel = cellViewModelAtRow(position.row, col: position.col)
+        cellViewModel.mark(marker)
+    }
+    
     private func createCellViewModel(cell: Cell) -> CellViewModel {
         let cellViewModel = CellViewModel(cell: cell)
         

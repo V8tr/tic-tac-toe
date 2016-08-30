@@ -43,15 +43,15 @@ class CellView: UIView {
 
         invisibleButton.addTarget(tapAction, action: CocoaAction.selector, forControlEvents: .TouchUpInside)
         
-        viewModel.selection.producer
-            .observeOn(UIScheduler())
-            .startWithNext { [weak self] selection in
-                var image: UIImage? = nil
-                if let imageName = selection.imageName() {
-                    image = UIImage(named: imageName)
-                }
-                self?.markerImageView.image = image
-        }
+//        viewModel.selection.producer
+//            .observeOn(UIScheduler())
+//            .startWithNext { [weak self] selection in
+//                var image: UIImage? = nil
+//                if let imageName = selection.imageName() {
+//                    image = UIImage(named: imageName)
+//                }
+//                self?.markerImageView.image = image
+//        }
     }
     
     private func setupUI() {        

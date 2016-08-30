@@ -13,48 +13,53 @@ import Result
 class GameViewModel {
     let gameOverSignal: Signal<GameResult, NoError>
     var activePlayer: MutableProperty<Player>
-    var move: Int = 0
+    var move: MutableProperty<Int>
     
     private let game: Game
 
     private let gameOverObserver: Observer<GameResult, NoError>
 
-    init(game: Game) {
-        self.game = game
-        self.activePlayer = MutableProperty(game.activePlayer)
-        
-        let (gameOverSignal, gameOverObserver) = Signal<GameResult, NoError>.pipe()
-        self.gameOverSignal = gameOverSignal
-        self.gameOverObserver = gameOverObserver
-    }
-    
-    var boardViewModel: BoardViewModel {
-        let boardViewModel = BoardViewModel(game.board)
+    lazy var boardViewModel: BoardViewModel = { [unowned self] in
+        let boardViewModel = BoardViewModel(self.game.board)
         
         boardViewModel.selectionChangesSignal
             .observeOn(UIScheduler())
-            .observeNext { [unowned self] position in
-                self.move += 1
-                
+            .observeNext { position in
                 if (self.isGameOver()) {
                     self.gameOverObserver.sendNext(self.game.gameResult())
                 }
                 
-                let nextPlayer = self.nextPlayer()
-                self.activePlayer.swap(nextPlayer)
-                self.game.activePlayer = nextPlayer
+                self.move.swap(self.move.value + 1)
         }
         
         return boardViewModel
-    }
+    }()
     
+    init(game: Game) {
+        self.game = game
+        activePlayer = MutableProperty(game.activePlayer)
+        move = MutableProperty(0)
+        
+        let (gameOverSignal, gameOverObserver) = Signal<GameResult, NoError>.pipe()
+        self.gameOverSignal = gameOverSignal
+        self.gameOverObserver = gameOverObserver
+        
+        move.producer
+            .observeOn(UIScheduler())
+            .startWithNext { [unowned self] move in
+                let nextPlayer = self.nextPlayer()
+                self.game.activePlayer = nextPlayer
+                self.activePlayer.swap(nextPlayer)
+        }
+    }
+
     private func isGameOver() -> Bool {
         return game.gameResult() != .InProgress
     }
     
     private func nextPlayer() -> Player {
         let players = game.players
-        let idx = move % players.count
+        let idx = self.move.value % players.count
         return players[idx]
     }
 }
