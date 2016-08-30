@@ -32,3 +32,16 @@ extension UIViewController: StoryboardInstantiable {
         return storyboard.instantiateViewControllerWithIdentifier(self.storyboardIdentifier) as! T
     }
 }
+
+extension UIViewController {
+    func showAlertWithTitle(title: String?, message: String?) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "alert.button.ok".localized,
+            style: UIAlertActionStyle.Default,
+            handler: nil)
+        alertController.addAction(okAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+}

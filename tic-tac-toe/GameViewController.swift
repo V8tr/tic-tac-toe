@@ -37,6 +37,26 @@ class GameViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        
+        viewModel.gameOverSignal
+            .observeOn(UIScheduler())
+            .observeNext { gameResult in
+                switch gameResult {
+                case .InProgress:
+                    break
+                case .Draw:
+                    self.draw()
+                case .Win(let player):
+                    self.win(player)
+                }
+        }
+    }
+    
+    private func draw() {
+        showAlertWithTitle(nil, message: "game.alert.draw".localized)
+    }
+    
+    private func win(player: Player) {
+        let message = String(format: "game.alert.win-format".localized, player.name)
+        showAlertWithTitle(nil, message: message)
     }
 }

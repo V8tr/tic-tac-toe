@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  tic-tac-toe
+
+  Created by Vadim Bulavin on 8/30/16.
+  Copyright © 2016 Vadim Bulavin. All rights reserved.
+*/
+
+"alert.button.ok" = "OK";
+"game.alert.draw" = "Draw";
+"game.alert.win-format" = "%@ won";

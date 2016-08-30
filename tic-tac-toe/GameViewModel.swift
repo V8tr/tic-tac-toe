@@ -11,19 +11,19 @@ import ReactiveCocoa
 import Result
 
 class GameViewModel {
-    let gameOverSignal: Signal<Player, NoError>
+    let gameOverSignal: Signal<GameResult, NoError>
     var activePlayer: MutableProperty<Player>
     var move: Int = 0
     
     private let game: Game
 
-    private let gameOverObserver: Observer<Player, NoError>
+    private let gameOverObserver: Observer<GameResult, NoError>
 
     init(game: Game) {
         self.game = game
         self.activePlayer = MutableProperty(game.activePlayer)
         
-        let (gameOverSignal, gameOverObserver) = Signal<Player, NoError>.pipe()
+        let (gameOverSignal, gameOverObserver) = Signal<GameResult, NoError>.pipe()
         self.gameOverSignal = gameOverSignal
         self.gameOverObserver = gameOverObserver
     }
@@ -37,7 +37,7 @@ class GameViewModel {
                 self.move += 1
                 
                 if (self.isGameOver()) {
-                    self.gameOverObserver.sendNext(self.activePlayer.value)
+                    self.gameOverObserver.sendNext(self.game.gameResult())
                 }
                 
                 let nextPlayer = self.nextPlayer()
