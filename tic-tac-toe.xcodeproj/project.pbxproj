@@ -33,6 +33,7 @@
 		8814A5081D7491000007537E /* Selection+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A5071D7491000007537E /* Selection+Equatable.swift */; };
 		8814A50A1D75A29A0007537E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8814A5091D75A29A0007537E /* Localizable.strings */; };
 		8814A5111D75A3BC0007537E /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A5101D75A3BC0007537E /* String+Localization.swift */; };
+		8814A5141D75AE7B0007537E /* CommonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A5131D75AE7B0007537E /* CommonExtension.swift */; };
 		B3162E1EFD9C73C4D847A1DF /* Pods_tic_tac_toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */; };
 		F7F48A8044649957DADBEE2B /* Pods_tic_tac_toeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,7 @@
 		8814A5071D7491000007537E /* Selection+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Selection+Equatable.swift"; sourceTree = "<group>"; };
 		8814A5091D75A29A0007537E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		8814A5101D75A3BC0007537E /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		8814A5131D75AE7B0007537E /* CommonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtension.swift; sourceTree = "<group>"; };
 		A0660A645EC018B1B115DCA8 /* Pods-tic-tac-toeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C512A1D87A31888048D216F3 /* Pods-tic-tac-toeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,9 +158,7 @@
 				8814A4D31D7072830007537E /* Model */,
 				8814A4B01D6F12A30007537E /* Storyboards */,
 				8814A4871D6C8A260007537E /* AppDelegate.swift */,
-				8814A48E1D6C8A260007537E /* Assets.xcassets */,
-				8814A4931D6C8A260007537E /* Info.plist */,
-				8814A5091D75A29A0007537E /* Localizable.strings */,
+				8814A5121D75A86E0007537E /* SupportingFiles */,
 			);
 			path = "tic-tac-toe";
 			sourceTree = "<group>";
@@ -214,6 +214,7 @@
 				8814A5051D7490BB0007537E /* GameResult+Equatable.swift */,
 				8814A5071D7491000007537E /* Selection+Equatable.swift */,
 				8814A5101D75A3BC0007537E /* String+Localization.swift */,
+				8814A5131D75AE7B0007537E /* CommonExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +235,16 @@
 				8814A4DF1D7072BD0007537E /* BoardView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		8814A5121D75A86E0007537E /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8814A5091D75A29A0007537E /* Localizable.strings */,
+				8814A48E1D6C8A260007537E /* Assets.xcassets */,
+				8814A4931D6C8A260007537E /* Info.plist */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +454,7 @@
 				8814A4DE1D7072AD0007537E /* Selection.swift in Sources */,
 				8814A5061D7490BB0007537E /* GameResult+Equatable.swift in Sources */,
 				8814A4FA1D746D9E0007537E /* UIViewController+Additions.swift in Sources */,
+				8814A5141D75AE7B0007537E /* CommonExtension.swift in Sources */,
 				8814A4F81D746AFF0007537E /* GameViewModel.swift in Sources */,
 				8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */,
 				8814A4F21D70899D0007537E /* Player.swift in Sources */,

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         game.activePlayer = players.first
         
         let viewModel = GameViewModel(game: game)
-        let gameVC: GameViewController = GameViewController.fromStoryboard()
+        let gameVC = GameViewController.fromStoryboard() as GameViewController
         gameVC.viewModel = viewModel
         
         window?.rootViewController = gameVC

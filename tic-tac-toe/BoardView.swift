@@ -51,7 +51,6 @@ class BoardView : UIView {
     private func createCellViewAtRow(row: Int, col: Int) -> CellView {
         let cellView = CellView.fromNib() as CellView
         cellView.viewModel = viewModel.cellViewModelAtRow(row, col: col)
-        cellView.backgroundColor = UIColor(red: CGFloat.random, green: CGFloat.random, blue: CGFloat.random, alpha: 1.0)
         return cellView
     }
     
