@@ -20,9 +20,9 @@ class CellViewModel {
     lazy var tapAction: Action<Void, Void, NSError> = { [unowned self] in
         return Action { _ in
             if (self.board.isValidMoveAt(self.position)) {
+                self.cell.mark(self.board.activeMarker)
                 let newSelection = Selection.Marked(self.board.activeMarker)
                 self.selection.swap(newSelection)
-                self.cell.mark(self.board.activeMarker)
             }
             return SignalProducer.empty
         }

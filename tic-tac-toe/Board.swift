@@ -14,12 +14,11 @@ class Board {
     let cols: Int
     
     private var cells: [Cell]!
-    private let analyzer: BoardAnalyzer
+    private var analyzer: BoardAnalyzer!
     
     init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
-        self.analyzer = BoardAnalyzer()
         
         var cells: [Cell] = []
         
@@ -32,6 +31,8 @@ class Board {
         }
         
         self.cells = cells
+        
+        self.analyzer = BoardAnalyzer(board: self, sequenceLength: 3)
     }
     
     func cellAtRow(row: Int, col: Int) -> Cell {
@@ -48,12 +49,19 @@ class Board {
         return game.activePlayer.marker
     }
     
+    var players: [Player] {
+        return game.players
+    }
+    
     func isValidMoveAt(position: Position) -> Bool {
         let cell = cellAtRow(position.row, col: position.col)
         return cell.isEmpty
     }
     
     func gameResult() -> GameResult {
-        return analyzer.gameResult(cells)
+        let result = analyzer.gameResultForCells(cells)
+        print("game result \(result)")
+        print("=============================")
+        return result
     }
 }
