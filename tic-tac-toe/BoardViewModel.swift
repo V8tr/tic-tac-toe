@@ -38,7 +38,7 @@ class BoardViewModel {
     }
     
     func markPosition(position: Position, marker: Marker) {
-        let cellViewModel = cellViewModelAtRow(position.row, col: position.col)
+        let cellViewModel = cellViewModelAtPosition(position)
         cellViewModel.mark(marker)
     }
     
@@ -55,8 +55,13 @@ class BoardViewModel {
         return cellViewModel
     }
     
-    func cellViewModelAtRow(row: Int, col: Int) -> CellViewModel {
-        let idx = row * self.cols + col
+    func cellViewModelAtIndexPath(indexPath: NSIndexPath) -> CellViewModel {
+        let position = Position(indexPath: indexPath)
+        return cellViewModelAtPosition(position)
+    }
+    
+    private func cellViewModelAtPosition(position: Position) -> CellViewModel {
+        let idx = position.row * self.cols + position.col
         assert(idx >= 0 && idx < self.cellsViewModels.count);
         return self.cellsViewModels[idx]
     }

@@ -27,6 +27,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let boardView = BoardView(viewModel: viewModel.boardViewModel)
+        boardView.delegate = self
         boardContainerView.addSubview(boardView)
         
         boardView.snp_makeConstraints { (make) in
@@ -60,5 +61,11 @@ class GameViewController: UIViewController {
     private func win(player: Player) {
         let message = String(format: "game.alert.win-format".localized, player.name)
         showAlertWithTitle(nil, message: message)
+    }
+}
+
+extension GameViewController: BoardViewDelegate {
+    func boardView(boardView: BoardView, didTapCellAtIndexPath indexPath: NSIndexPath) {
+        viewModel.markAction.apply(indexPath).producer.start()
     }
 }

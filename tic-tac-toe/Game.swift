@@ -16,7 +16,6 @@ enum GameResult {
 
 class Game {
     let players: [Player]
-    var activePlayer: Player!
     var board: Board!
     
     init(players: [Player], board: Board) {

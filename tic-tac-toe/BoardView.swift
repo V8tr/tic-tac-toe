@@ -10,10 +10,16 @@ import UIKit
 import SnapKit
 import ReactiveCocoa
 
+protocol BoardViewDelegate: class {
+    func boardView(boardView: BoardView, didTapCellAtIndexPath indexPath: NSIndexPath)
+}
+
 class BoardView : UIView {
     private let viewModel: BoardViewModel!
     private var collectionView: UICollectionView!
-        
+    
+    weak var delegate: BoardViewDelegate?
+    
     // MARK: - init
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
@@ -42,55 +48,12 @@ class BoardView : UIView {
             make.edges.equalTo(self)
         }
     }
-    
-    // MARK: - drawing
-    private func drawBoard() {
-        var rowStacks: [UIStackView] = []
-
-        for row in 0..<viewModel.rows {
-            var rowCellViews: [CellView] = []
-            
-            for col in 0..<viewModel.cols {
-                rowCellViews.append(createCellViewAtRow(row, col: col))
-            }
-            
-            let rowStack = createRowStackWithCellView(rowCellViews)
-            rowStacks.append(rowStack)
-        }
-        
-        let boardStack = createBoardStackWithRowStacks(rowStacks)
-        addSubview(boardStack)
-        
-        boardStack.snp_makeConstraints { make in
-            make.edges.equalTo(self)
-        }
-    }
-    
-    private func createCellViewAtRow(row: Int, col: Int) -> CellView {
-        let cellView = CellView.fromNib() as CellView
-        cellView.viewModel = viewModel.cellViewModelAtRow(row, col: col)
-        return cellView
-    }
-    
-    private func createRowStackWithCellView(cellViews: [CellView]) -> UIStackView {
-        let rowStack = UIStackView(arrangedSubviews: cellViews)
-        rowStack.distribution  = .FillEqually
-        rowStack.axis = .Horizontal
-        rowStack.alignment = .Fill
-        return rowStack
-    }
-    
-    private func createBoardStackWithRowStacks(rowStacks: [UIStackView]) -> UIStackView {
-        let boardStack = UIStackView(arrangedSubviews: rowStacks)
-        boardStack.distribution  = .FillEqually
-        boardStack.axis = .Vertical
-        boardStack.alignment = .Fill
-        return boardStack
-    }
 }
 
 extension BoardView: UICollectionViewDelegate {
-    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegate?.boardView(self, didTapCellAtIndexPath: indexPath)
+    }
 }
 
 extension BoardView: UICollectionViewDataSource {
@@ -108,7 +71,7 @@ extension BoardView: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellCollectionCell.ID,
                                                                          forIndexPath: indexPath) as! CellCollectionCell
-        cell.viewModel = viewModel.cellViewModelAtRow(indexPath.section, col: indexPath.item)
+        cell.viewModel = viewModel.cellViewModelAtIndexPath(indexPath)
         return cell
     }
     

@@ -45,10 +45,6 @@ class Board {
         return self.cells.count
     }
     
-    var activeMarker: Marker {
-        return game.activePlayer.marker
-    }
-    
     var players: [Player] {
         return game.players
     }

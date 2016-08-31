@@ -22,16 +22,6 @@ class CellViewModel {
     
     private let cell: Cell
     private let board: Board
-    
-    // Actions
-    lazy var tapAction: Action<Void, Void, NSError> = { [unowned self] in
-        return Action { _ in
-            if (self.board.isValidMoveAt(self.position)) {
-                self.mark(self.board.activeMarker)
-            }
-            return SignalProducer.empty
-        }
-    }()
 
     init(cell: Cell) {
         self.position = cell.position
@@ -42,8 +32,7 @@ class CellViewModel {
     
     func mark(marker: Marker) {
         cell.mark(marker)
-        let newSelection = Selection.Marked(self.board.activeMarker)
-        self.selection.swap(newSelection)
+        self.selection.swap(cell.selection)
     }
     
     var row: Int {

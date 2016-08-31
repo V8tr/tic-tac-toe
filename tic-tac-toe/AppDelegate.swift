@@ -20,9 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]
         let board = Board(rows: 3, cols: 3)
         let game = Game(players: players, board: board)
-        game.activePlayer = players.first
         
-        let viewModel = GameViewModel(game: game)
+        let viewModel = GameViewModel(game: game, activePlayer: players.first!)
         let gameVC = GameViewController.fromStoryboard() as GameViewController
         gameVC.viewModel = viewModel
         

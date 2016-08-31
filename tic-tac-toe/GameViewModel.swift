@@ -15,6 +15,17 @@ class GameViewModel {
     var activePlayer: MutableProperty<Player>
     var move: MutableProperty<Int>
     
+    lazy var markAction: Action<NSIndexPath, Void, NoError> = { [unowned self] in
+        return Action({ indexPath in
+            return SignalProducer<Void, NoError> { observer, _ in
+                let marker = self.activePlayer.value.marker
+                let position = Position(indexPath: indexPath)
+                self.boardViewModel.markPosition(position, marker: marker)
+                observer.sendCompleted()
+            }
+        })
+    }()
+    
     private let game: Game
 
     private let gameOverObserver: Observer<GameResult, NoError>
@@ -35,9 +46,9 @@ class GameViewModel {
         return boardViewModel
     }()
     
-    init(game: Game) {
+    init(game: Game, activePlayer: Player) {
         self.game = game
-        activePlayer = MutableProperty(game.activePlayer)
+        self.activePlayer = MutableProperty(activePlayer)
         move = MutableProperty(0)
         
         let (gameOverSignal, gameOverObserver) = Signal<GameResult, NoError>.pipe()
@@ -48,7 +59,6 @@ class GameViewModel {
             .observeOn(UIScheduler())
             .startWithNext { [unowned self] move in
                 let nextPlayer = self.nextPlayer()
-                self.game.activePlayer = nextPlayer
                 self.activePlayer.swap(nextPlayer)
         }
     }
