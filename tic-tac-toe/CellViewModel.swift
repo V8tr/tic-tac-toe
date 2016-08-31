@@ -18,21 +18,21 @@ enum CellBorder {
 
 class CellViewModel {
     let position: Position
-    let selection: MutableProperty<Selection>
+    var selection: Selection
     
     private let cell: Cell
     private let board: Board
 
     init(cell: Cell) {
         self.position = cell.position
-        self.selection = MutableProperty(cell.selection)
+        self.selection = cell.selection
         self.cell = cell
         self.board = cell.board
     }
     
     func mark(marker: Marker) {
         cell.mark(marker)
-        self.selection.swap(cell.selection)
+        selection = cell.selection
     }
     
     var row: Int {

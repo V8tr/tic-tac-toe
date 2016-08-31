@@ -36,6 +36,7 @@
 		8814A5191D75DFF20007537E /* CellCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A5171D75DFF20007537E /* CellCollectionCell.swift */; };
 		8814A51A1D75DFF20007537E /* CellCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8814A5181D75DFF20007537E /* CellCollectionCell.xib */; };
 		8814A51C1D75E0160007537E /* UICollectionViewCell+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A51B1D75E0160007537E /* UICollectionViewCell+Additions.swift */; };
+		8814A51E1D770AC80007537E /* Array+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A51D1D770AC80007537E /* Array+Additions.swift */; };
 		B3162E1EFD9C73C4D847A1DF /* Pods_tic_tac_toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */; };
 		F7F48A8044649957DADBEE2B /* Pods_tic_tac_toeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		8814A5171D75DFF20007537E /* CellCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellCollectionCell.swift; sourceTree = "<group>"; };
 		8814A5181D75DFF20007537E /* CellCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellCollectionCell.xib; sourceTree = "<group>"; };
 		8814A51B1D75E0160007537E /* UICollectionViewCell+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Additions.swift"; sourceTree = "<group>"; };
+		8814A51D1D770AC80007537E /* Array+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Additions.swift"; sourceTree = "<group>"; };
 		A0660A645EC018B1B115DCA8 /* Pods-tic-tac-toeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C512A1D87A31888048D216F3 /* Pods-tic-tac-toeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				8814A5101D75A3BC0007537E /* String+Localization.swift */,
 				8814A5131D75AE7B0007537E /* CommonExtension.swift */,
 				8814A51B1D75E0160007537E /* UICollectionViewCell+Additions.swift */,
+				8814A51D1D770AC80007537E /* Array+Additions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				8814A4F81D746AFF0007537E /* GameViewModel.swift in Sources */,
 				8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */,
 				8814A5161D75C1D40007537E /* AIPlayer.swift in Sources */,
+				8814A51E1D770AC80007537E /* Array+Additions.swift in Sources */,
 				8814A4F21D70899D0007537E /* Player.swift in Sources */,
 				8814A4DB1D7072AD0007537E /* Cell.swift in Sources */,
 				8814A4DA1D7072AD0007537E /* Board.swift in Sources */,

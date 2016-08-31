@@ -21,6 +21,10 @@ struct Position {
         row = indexPath.section
         col = indexPath.row
     }
+    
+    func toIndexPath() -> NSIndexPath {
+        return NSIndexPath(forRow: col, inSection: row)
+    }
 }
 
 class Cell {

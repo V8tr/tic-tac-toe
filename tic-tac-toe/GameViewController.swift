@@ -38,9 +38,9 @@ class GameViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel.gameOverSignal
+        viewModel.gameResult.producer
             .observeOn(UIScheduler())
-            .observeNext { [weak self] gameResult in
+            .startWithNext { [weak self] gameResult in
                 guard let strongSelf = self else { return }
                 
                 switch gameResult {
@@ -51,6 +51,12 @@ class GameViewController: UIViewController {
                 case .Win(let player):
                     strongSelf.win(player)
                 }
+        }
+        
+        viewModel.AIMoveSignal
+            .observeOn(UIScheduler())
+            .observeNext { [weak self] indexPath in
+                self?.viewModel.markAction.apply(indexPath).producer.start()
         }
     }
     
@@ -67,5 +73,6 @@ class GameViewController: UIViewController {
 extension GameViewController: BoardViewDelegate {
     func boardView(boardView: BoardView, didTapCellAtIndexPath indexPath: NSIndexPath) {
         viewModel.markAction.apply(indexPath).producer.start()
+        viewModel.nextTurn()
     }
 }

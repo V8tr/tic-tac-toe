@@ -26,6 +26,10 @@ class CellCollectionCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        for borderView in [leftBorderView, topBorderView, rightBorderView, bottomBorderView] {
+            borderView.hidden = true
+            borderView.backgroundColor = UIColor.blackColor()
+        }
     }
     
     var viewModel: CellViewModel! {
@@ -37,15 +41,11 @@ class CellCollectionCell: UICollectionViewCell {
     private func bindViewModel() {
         updateBorders(viewModel.borders)
         
-        viewModel.selection.producer
-            .observeOn(UIScheduler())
-            .startWithNext { [weak self] selection in
-                if let imageName = selection.imageName() {
-                    self?.markerImageView.image = UIImage(named: imageName)
-                }
-                else {
-                    self?.markerImageView.image = nil
-                }
+        if let imageName = viewModel.selection.imageName() {
+            self.markerImageView.image = UIImage(named: imageName)
+        }
+        else {
+            self.markerImageView.image = nil
         }
     }
 

@@ -10,6 +10,25 @@ import UIKit
 
 class AIPlayer: Player {
     func positionToMark(board: Board) -> Position? {
-        return Position(row: 0, col: 0)
+        var rows: [Int] = Array(0..<board.rows)
+        
+        while (!rows.isEmpty) {
+            let rowToMark = rows.randomElement()
+            var cols: [Int] = Array(0..<board.cols)
+            
+            while (!cols.isEmpty) {
+                let colToMark = cols.randomElement()
+                let cell = board.cellAtRow(rowToMark, col: colToMark)
+                if (cell.isEmpty) {
+                    return Position(row: rowToMark, col: colToMark)
+                }
+                cols.removeObject(colToMark)
+            }
+            
+            rows.removeObject(rowToMark)
+        }
+        
+        return nil
     }
+    
 }

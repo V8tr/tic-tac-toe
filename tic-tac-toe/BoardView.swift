@@ -29,6 +29,7 @@ class BoardView : UIView {
         self.viewModel = viewModel
         super.init(frame: CGRectZero)
         setupCollectionView()
+        bindViewModel()
     }
     
     private func setupCollectionView() {
@@ -46,6 +47,14 @@ class BoardView : UIView {
         addSubview(collectionView)
         collectionView.snp_makeConstraints { make in
             make.edges.equalTo(self)
+        }
+    }
+    
+    private func bindViewModel() {
+        viewModel.selectionChangesSignal
+            .observeOn(UIScheduler())
+            .observeNext { [weak self] indexPath in
+                self?.collectionView.reloadData()
         }
     }
 }

@@ -13,17 +13,17 @@ import Result
 class BoardViewModel {
     let rows: Int
     let cols: Int
-    let selectionChangesSignal: Signal<Position, NoError>
+    let selectionChangesSignal: Signal<NSIndexPath, NoError>
     
     private var cellsViewModels: [CellViewModel]!
     
-    private let selectionChangesObserver: Observer<Position, NoError>
+    private let selectionChangesObserver: Observer<NSIndexPath, NoError>
 
     init(_ board: Board) {
         self.rows = board.rows
         self.cols = board.cols
         
-        let (selectionSignal, selectionObserver) = Signal<Position, NoError>.pipe()
+        let (selectionSignal, selectionObserver) = Signal<NSIndexPath, NoError>.pipe()
         self.selectionChangesSignal = selectionSignal
         self.selectionChangesObserver = selectionObserver
         
@@ -31,7 +31,7 @@ class BoardViewModel {
         for row in 0..<board.rows {
             for col in 0..<board.cols {
                 let cell = board.cellAtRow(row, col: col)
-                cellsViewModels.append(createCellViewModel(cell))
+                cellsViewModels.append(CellViewModel(cell: cell))
             }
         }
         self.cellsViewModels = cellsViewModels
@@ -40,19 +40,7 @@ class BoardViewModel {
     func markPosition(position: Position, marker: Marker) {
         let cellViewModel = cellViewModelAtPosition(position)
         cellViewModel.mark(marker)
-    }
-    
-    private func createCellViewModel(cell: Cell) -> CellViewModel {
-        let cellViewModel = CellViewModel(cell: cell)
-        
-        cellViewModel.selection.producer
-            .observeOn(UIScheduler())
-            .skip(1)
-            .startWithNext { [unowned self] _ in
-                self.selectionChangesObserver.sendNext(cellViewModel.position)
-        }
-        
-        return cellViewModel
+        selectionChangesObserver.sendNext(position.toIndexPath())
     }
     
     func cellViewModelAtIndexPath(indexPath: NSIndexPath) -> CellViewModel {
