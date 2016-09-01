@@ -22,11 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let game = Game(players: players, board: board)
         
         let viewModel = GameViewModel(game: game, activePlayer: players.first!)
-        let gameVC = GameViewController.fromStoryboard() as GameViewController
-        gameVC.viewModel = viewModel
+        let gameVC = GameViewController(viewModel: viewModel)
         
-        window?.rootViewController = gameVC
-        window?.makeKeyAndVisible()
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window!.rootViewController = gameVC
+        window!.makeKeyAndVisible()
         
         return true
     }

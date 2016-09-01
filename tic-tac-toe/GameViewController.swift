@@ -13,14 +13,18 @@ import ReactiveCocoa
 class GameViewController: UIViewController {
     @IBOutlet weak var boardContainerView: UIView!
     
-    var viewModel: GameViewModel! {
-        didSet {
-            bindViewModel()
-        }
-    }
+    private let viewModel: GameViewModel
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    init(viewModel: GameViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: "GameViewController", bundle: nil)
+        
+        bindViewModel()
     }
 
     override func viewDidLoad() {
@@ -31,32 +35,20 @@ class GameViewController: UIViewController {
         boardContainerView.addSubview(boardView)
         
         boardView.snp_makeConstraints { (make) in
-            make.center.equalTo(boardContainerView)
-            make.width.equalTo(boardContainerView)
-            make.height.equalTo(boardContainerView.snp_width)
+            make.edges.equalTo(boardContainerView)
         }
     }
     
     private func bindViewModel() {
-        viewModel.gameResult.producer
+        viewModel.isGameOver.producer
             .observeOn(UIScheduler())
-            .startWithNext { [weak self] gameResult in
+            .startWithNext { [weak self] isGameOver in
                 guard let strongSelf = self else { return }
+                guard isGameOver else { return }
                 
-                switch gameResult {
-                case .InProgress:
-                    break
-                case .Draw:
-                    strongSelf.draw()
-                case .Win(let player):
-                    strongSelf.win(player)
-                }
-        }
-        
-        viewModel.AIMoveSignal
-            .observeOn(UIScheduler())
-            .observeNext { [weak self] indexPath in
-                self?.viewModel.markAction.apply(indexPath).producer.start()
+                let viewModel = strongSelf.viewModel.createGameResultViewModel()
+                let gameResultVC = GameResultViewController(viewModel: viewModel)
+                strongSelf.presentViewController(gameResultVC, animated: true, completion: nil)
         }
     }
     
