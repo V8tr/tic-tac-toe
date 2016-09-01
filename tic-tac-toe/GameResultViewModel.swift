@@ -6,14 +6,39 @@
 //  Copyright © 2016 Vadim Bulavin. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import ReactiveCocoa
+import Result
 
 class GameResultViewModel {
-    private let players: [Player]
     private let gameResult: GameResult
+    private let restartObserver: Observer<Void, NoError>
     
-    init(players: [Player], gameResult: GameResult) {
-        self.players = players
+    lazy var restartAction: Action<Void, Void, NoError> = { [unowned self] in
+        print("lazy init restart")
+
+        return Action { _ in
+            return SignalProducer { observer, _ in
+                print("restart")
+                self.restartObserver.sendNext()
+                observer.sendCompleted()
+            }
+        }
+    }()
+    
+    init(gameResult: GameResult, restartObserver: Observer<Void, NoError>) {
         self.gameResult = gameResult
+        self.restartObserver = restartObserver
+    }
+    
+    var resultImage: UIImage? {
+        switch gameResult {
+        case .Win(let player):
+            return UIImage(named: player.marker.imageName())
+        case .Draw: 
+            return UIImage(named: "draw")
+        default:
+            return nil
+        }
     }
 }

@@ -50,6 +50,12 @@ class GameViewController: UIViewController {
                 let gameResultVC = GameResultViewController(viewModel: viewModel)
                 strongSelf.presentViewController(gameResultVC, animated: true, completion: nil)
         }
+//        
+//        viewModel.restartSignal
+//            .observeOn(UIScheduler())
+//            .observeNext { [weak self] in
+//                self?.dismissViewControllerAnimated(true, completion: nil)
+//        }
     }
     
     private func draw() {

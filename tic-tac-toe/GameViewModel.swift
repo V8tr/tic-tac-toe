@@ -13,6 +13,8 @@ import Result
 class GameViewModel {
     let isGameOver: MutableProperty<Bool>
     let boardViewModel: BoardViewModel
+    
+    let restartSignal: Signal<Void, NoError>
 
     lazy var markAction: Action<NSIndexPath, Void, NoError> = { [unowned self] in
         return Action({ indexPath in
@@ -29,6 +31,8 @@ class GameViewModel {
     private let gameResult: MutableProperty<GameResult>
     private let game: Game
     
+    private let restartObserver: Observer<Void, NoError>
+    
     init(game: Game, activePlayer: Player) {
         self.game = game
         self.activePlayer = MutableProperty(activePlayer)
@@ -36,6 +40,10 @@ class GameViewModel {
         move = MutableProperty(0)
         gameResult = MutableProperty(self.game.gameResult())
         isGameOver = MutableProperty(false)
+        
+        let (restartSignal, restartObserver) = Signal<Void, NoError>.pipe()
+        self.restartSignal = restartSignal
+        self.restartObserver = restartObserver
         
         self.activePlayer <~ move.producer.map { [unowned self] move in
             let players = self.game.players
@@ -59,7 +67,7 @@ class GameViewModel {
     }
         
     func createGameResultViewModel() -> GameResultViewModel {
-        let viewModel = GameResultViewModel(players: game.players, gameResult: gameResult.value)
+        let viewModel = GameResultViewModel(gameResult: gameResult.value, restartObserver: restartObserver)
         return viewModel
     }
 }

@@ -9,3 +9,4 @@
 "alert.button.ok" = "OK";
 "game.alert.draw" = "Draw";
 "game.alert.win-format" = "%@ won";
+"game-result.button.restart" = "Restart";

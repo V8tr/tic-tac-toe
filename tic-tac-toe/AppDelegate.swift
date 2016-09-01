@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReactiveCocoa
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        window!.makeKeyAndVisible()
+        
+        startNewGame()
+        
+        return true
+    }
+    
+    func startNewGame() {
         let players = [
             Player(name: "V8tr", marker: .Circle),
             AIPlayer(name: "Dude", marker: .Cross)
@@ -22,13 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let game = Game(players: players, board: board)
         
         let viewModel = GameViewModel(game: game, activePlayer: players.first!)
+        
+        viewModel.restartSignal
+            .observeOn(UIScheduler())
+            .observeNext { [unowned self] in
+                self.startNewGame()
+        }
+        
         let gameVC = GameViewController(viewModel: viewModel)
-        
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window!.rootViewController = gameVC
-        window!.makeKeyAndVisible()
-        
-        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
