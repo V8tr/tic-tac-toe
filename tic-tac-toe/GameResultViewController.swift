@@ -46,5 +46,4 @@ class GameResultViewController: UIViewController {
             make.edges.equalTo(winnerView)
         }
     }
-
 }

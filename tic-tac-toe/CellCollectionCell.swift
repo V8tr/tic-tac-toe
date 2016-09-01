@@ -15,6 +15,9 @@ class CellCollectionCell: UICollectionViewCell {
     @IBOutlet weak var topBorderView: UIView!
     @IBOutlet weak var rightBorderView: UIView!
     @IBOutlet weak var bottomBorderView: UIView!
+    @IBOutlet weak var customContentView: UIView!
+    
+    private var markerView: MarkerView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +33,10 @@ class CellCollectionCell: UICollectionViewCell {
             borderView.hidden = true
             borderView.backgroundColor = UIColor.blackColor()
         }
+        if markerView != nil {
+            self.markerView!.removeFromSuperview()
+            self.markerView = nil
+        }
     }
     
     var viewModel: CellViewModel! {
@@ -41,12 +48,24 @@ class CellCollectionCell: UICollectionViewCell {
     private func bindViewModel() {
         updateBorders(viewModel.borders)
         
-        if let imageName = viewModel.selection.imageName() {
-            self.markerImageView.image = UIImage(named: imageName)
+        markerView = CircleMarkerView(frame: CGRectZero)
+        
+        customContentView.addSubview(markerView!)
+        markerView!.snp_makeConstraints { make in
+            make.edges.equalTo(customContentView)
         }
-        else {
-            self.markerImageView.image = nil
-        }
+        
+        markerView!.setNeedsLayout()
+        markerView!.layoutIfNeeded()
+        
+        markerView!.animate(5.0)
+        
+//        if let imageName = viewModel.selection.imageName() {
+//            self.markerImageView.image = UIImage(named: imageName)
+//        }
+//        else {
+//            self.markerImageView.image = nil
+//        }
     }
 
     private func updateBorders(borders: [CellBorder]) {
