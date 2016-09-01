@@ -15,11 +15,8 @@ class GameResultViewModel {
     private let restartObserver: Observer<Void, NoError>
     
     lazy var restartAction: Action<Void, Void, NoError> = { [unowned self] in
-        print("lazy init restart")
-
         return Action { _ in
             return SignalProducer { observer, _ in
-                print("restart")
                 self.restartObserver.sendNext()
                 observer.sendCompleted()
             }
