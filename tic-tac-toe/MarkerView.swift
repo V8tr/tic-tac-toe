@@ -22,12 +22,12 @@ enum MarkerViewFactory {
 class MarkerView: UIView {
     var shapeLayer: CAShapeLayer!
     
-    var strokeColor: UIColor {
-        return UIColor.blackColor()
-    }
-    
     var path: UIBezierPath {
         return UIBezierPath()
+    }
+    
+    private var strokeColor: UIColor {
+        return UIColor.blackColor()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,7 +46,12 @@ class MarkerView: UIView {
         layer.addSublayer(shapeLayer)
     }
     
-    func animate(duration: NSTimeInterval) {
+    func animate(duration: NSTimeInterval, completion: () -> ()) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock({
+            completion()
+        })
+        
         shapeLayer.removeAllAnimations()
         
         shapeLayer.path = path.CGPath
@@ -59,6 +64,8 @@ class MarkerView: UIView {
         
         shapeLayer.strokeEnd = 1.0
         shapeLayer.addAnimation(animation, forKey: "animateCircle")
+        
+        CATransaction.commit()
     }
     
     func draw() {

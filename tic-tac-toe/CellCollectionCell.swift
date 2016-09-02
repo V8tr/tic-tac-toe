@@ -45,11 +45,6 @@ class CellCollectionCell: UICollectionViewCell {
         }
     }
     
-    func animate() {
-        guard let markerView = markerView else { return }
-        markerView.animate(2.0)
-    }
-    
     private func bindViewModel() {
         updateBorders(viewModel.borders)
         
@@ -64,23 +59,14 @@ class CellCollectionCell: UICollectionViewCell {
         markerView!.layoutIfNeeded()
         
         if (viewModel.canAnimate) {
-            CATransaction.begin()
-            CATransaction.setCompletionBlock({ [weak self] in
-                self?.viewModel.canAnimate = false
-            })
-            markerView!.animate(1.0)
-            CATransaction.commit()
+            markerView!.animate(CellViewModel.animationDuration,
+                                completion: { [weak self] in
+                                    self?.viewModel.canAnimate = false
+                })
         }
         else {
             markerView!.draw()
         }
-        
-//        if let imageName = viewModel.selection.imageName() {
-//            self.markerImageView.image = UIImage(named: imageName)
-//        }
-//        else {
-//            self.markerImageView.image = nil
-//        }
     }
 
     private func updateBorders(borders: [CellBorder]) {

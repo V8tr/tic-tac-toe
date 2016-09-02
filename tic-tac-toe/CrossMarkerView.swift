@@ -9,10 +9,6 @@
 import UIKit
 
 class CrossMarkerView: MarkerView {
-    override var strokeColor: UIColor {
-        return UIColor.yellowColor()
-    }
-    
     override var path: UIBezierPath {
         let path = UIBezierPath()
         

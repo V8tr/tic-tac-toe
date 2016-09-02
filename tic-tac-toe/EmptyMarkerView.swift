@@ -9,11 +9,5 @@
 import UIKit
 
 class EmptyMarkerView: MarkerView {
-    override func animate(duration: NSTimeInterval) {
-        // empty
-    }
-    
-    override func draw() {
-        // empty
-    }
+
 }

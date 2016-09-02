@@ -21,6 +21,8 @@ class CellViewModel {
     var selection: Selection
     var canAnimate = false
     
+    static let animationDuration = 0.5
+    
     private let cell: Cell
     private let board: Board
 
