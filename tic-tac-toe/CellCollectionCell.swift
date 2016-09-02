@@ -45,10 +45,15 @@ class CellCollectionCell: UICollectionViewCell {
         }
     }
     
+    func animate() {
+        guard let markerView = markerView else { return }
+        markerView.animate(2.0)
+    }
+    
     private func bindViewModel() {
         updateBorders(viewModel.borders)
         
-        markerView = CircleMarkerView(frame: CGRectZero)
+        markerView = MarkerViewFactory.markerViewForSelection(viewModel.selection)
         
         customContentView.addSubview(markerView!)
         markerView!.snp_makeConstraints { make in
@@ -58,7 +63,17 @@ class CellCollectionCell: UICollectionViewCell {
         markerView!.setNeedsLayout()
         markerView!.layoutIfNeeded()
         
-        markerView!.animate(5.0)
+        if (viewModel.canAnimate) {
+            CATransaction.begin()
+            CATransaction.setCompletionBlock({ [weak self] in
+                self?.viewModel.canAnimate = false
+            })
+            markerView!.animate(1.0)
+            CATransaction.commit()
+        }
+        else {
+            markerView!.draw()
+        }
         
 //        if let imageName = viewModel.selection.imageName() {
 //            self.markerImageView.image = UIImage(named: imageName)

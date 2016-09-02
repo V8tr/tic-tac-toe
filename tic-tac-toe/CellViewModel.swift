@@ -19,6 +19,7 @@ enum CellBorder {
 class CellViewModel {
     let position: Position
     var selection: Selection
+    var canAnimate = false
     
     private let cell: Cell
     private let board: Board
@@ -33,6 +34,7 @@ class CellViewModel {
     func mark(marker: Marker) {
         cell.mark(marker)
         selection = cell.selection
+        canAnimate = !cell.isEmpty
     }
     
     var row: Int {
