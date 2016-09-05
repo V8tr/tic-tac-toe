@@ -64,7 +64,7 @@ class GameViewController: UIViewController {
                 self?.view.backgroundColor = enabled ? UIColor.yellowColor() : UIColor.whiteColor()
         }
         
-        playerLabel.rac_t <~ viewModel.activePlayerName.producer
+        DynamicProperty(object: playerLabel, keyPath: "text") <~ viewModel.activePlayerName
     }
     
     private func openGameResultScreenAfterDelay(delay: NSTimeInterval) {

@@ -16,4 +16,8 @@ class Player {
         self.name = name
         self.marker = marker
     }
+    
+    var displayName: String {
+        return "\(marker.toString()) \(name)"
+    }
 }

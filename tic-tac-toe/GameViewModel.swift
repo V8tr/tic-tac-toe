@@ -82,7 +82,7 @@ class GameViewModel {
         }
         
         activePlayerName <~ self.activePlayer.producer.map { player in
-            return "\(player)"
+            return player.displayName
         }
     }
     

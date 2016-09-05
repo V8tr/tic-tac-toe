@@ -18,4 +18,11 @@ enum Marker: Equatable {
         case .Circle: return "circle"
         }
     }
+    
+    func toString() -> String {
+        switch self {
+        case .Cross: return "╳"
+        case .Circle: return "◯"
+        }
+    }
 }
