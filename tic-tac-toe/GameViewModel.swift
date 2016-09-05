@@ -15,9 +15,9 @@ class GameViewModel {
     static let delayBetweenMoves = 0.5
 
     let boardViewModel: BoardViewModel
+    let activePlayerName: MutableProperty<String>
     
     let move: MutableProperty<Int>
-    let activePlayer: MutableProperty<Player>
     
     let restartSignal: Signal<Void, NoError>
     let gameOverSignal: Signal<[NSIndexPath], NoError>
@@ -36,6 +36,7 @@ class GameViewModel {
     }()
     
     private let gameResult: MutableProperty<GameResult>
+    private let activePlayer: MutableProperty<Player>
     private let game: Game
     private var isGameOver: Bool {
         return gameResult.value != .InProgress
@@ -51,6 +52,7 @@ class GameViewModel {
         move = MutableProperty(0)
         gameResult = MutableProperty(self.game.gameResult())
         isWaitingForUserInteraction = MutableProperty(true)
+        activePlayerName = MutableProperty("")
         
         let (restartSignal, restartObserver) = Signal<Void, NoError>.pipe()
         self.restartSignal = restartSignal
@@ -77,6 +79,10 @@ class GameViewModel {
             .map { [unowned self] move in
                 let players = self.game.players
                 return players[move % players.count]
+        }
+        
+        activePlayerName <~ self.activePlayer.producer.map { player in
+            return "\(player)"
         }
     }
     

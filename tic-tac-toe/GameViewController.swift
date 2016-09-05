@@ -12,6 +12,7 @@ import ReactiveCocoa
 
 class GameViewController: UIViewController {
     @IBOutlet weak var boardContainerView: UIView!
+    @IBOutlet weak var playerLabel: UILabel!
     
     private let viewModel: GameViewModel
     private var boardView: BoardView!
@@ -62,6 +63,8 @@ class GameViewController: UIViewController {
             .startWithNext { [weak self] enabled in
                 self?.view.backgroundColor = enabled ? UIColor.yellowColor() : UIColor.whiteColor()
         }
+        
+        playerLabel.rac_t <~ viewModel.activePlayerName.producer
     }
     
     private func openGameResultScreenAfterDelay(delay: NSTimeInterval) {
