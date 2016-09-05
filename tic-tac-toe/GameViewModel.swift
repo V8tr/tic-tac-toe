@@ -27,6 +27,7 @@ class GameViewModel {
     lazy var markAction: Action<NSIndexPath, Void, NoError> = { [unowned self] in
         return Action({ indexPath in
             return SignalProducer<Void, NoError> { observer, _ in
+                self.isWaitingForUserInteraction.value = false
                 let position = Position(indexPath: indexPath)
                 self.mark(position)
                 observer.sendCompleted()
@@ -49,7 +50,7 @@ class GameViewModel {
         boardViewModel = BoardViewModel(self.game.board)
         move = MutableProperty(0)
         gameResult = MutableProperty(self.game.gameResult())
-        isWaitingForUserInteraction = MutableProperty(false)
+        isWaitingForUserInteraction = MutableProperty(true)
         
         let (restartSignal, restartObserver) = Signal<Void, NoError>.pipe()
         self.restartSignal = restartSignal
@@ -71,21 +72,25 @@ class GameViewModel {
                 self.gameOverObserver.sendNext(indexPaths)
         }
         
-        self.activePlayer <~ move.producer.map { [unowned self] move in
-            let players = self.game.players
-            return players[move % players.count]
+        self.activePlayer <~ move.producer
+            .delay(self.dynamicType.delayBetweenMoves, onScheduler: QueueScheduler.mainQueueScheduler)
+            .map { [unowned self] move in
+                let players = self.game.players
+                return players[move % players.count]
         }
-        
-        isWaitingForUserInteraction <~ self.activePlayer.producer.map { player in
-            return !(player is AIPlayer)
-        }.delay(<#T##interval: NSTimeInterval##NSTimeInterval#>, onScheduler: <#T##DateSchedulerType#>)
     }
     
     func nextTurn() {
         guard !isGameOver else { return }
-        guard let player = activePlayer.value as? AIPlayer else { return }
-        guard let position = player.positionToMark(self.game.board) else { return }
-        mark(position)
+        
+        // make AI move
+        if let player = activePlayer.value as? AIPlayer, position = player.positionToMark(game.board) {
+            isWaitingForUserInteraction.value = false
+            mark(position)
+        }
+        else {
+            isWaitingForUserInteraction.value = true
+        }
     }
     
     private func mark(position: Position) {

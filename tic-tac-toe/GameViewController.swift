@@ -61,7 +61,6 @@ class GameViewController: UIViewController {
             .observeOn(UIScheduler())
             .startWithNext { [weak self] enabled in
                 self?.view.backgroundColor = enabled ? UIColor.yellowColor() : UIColor.whiteColor()
-                print("isWaitingForUserInteraction: \(enabled)")
         }
     }
     
@@ -88,6 +87,5 @@ class GameViewController: UIViewController {
 extension GameViewController: BoardViewDelegate {
     func boardView(boardView: BoardView, didTapCellAtIndexPath indexPath: NSIndexPath) {
         viewModel.markAction.apply(indexPath).producer.start()
-//        viewModel.nextTurn()
     }
 }
