@@ -14,6 +14,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var boardContainerView: UIView!
     
     private let viewModel: GameViewModel
+    private var boardView: BoardView!
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,7 +31,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let boardView = BoardView(viewModel: viewModel.boardViewModel)
+        boardView = BoardView(viewModel: viewModel.boardViewModel)
         boardView.delegate = self
         boardContainerView.addSubview(boardView)
         
@@ -40,15 +41,15 @@ class GameViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel.isGameOver.producer
+        viewModel.gameOverSignal
             .observeOn(UIScheduler())
-            .startWithNext { [weak self] isGameOver in
+            .observeNext { [weak self] indexPaths in
                 guard let strongSelf = self else { return }
-                guard isGameOver else { return }
-                
-                let viewModel = strongSelf.viewModel.createGameResultViewModel()
-                let gameResultVC = GameResultViewController(viewModel: viewModel)
-                strongSelf.presentViewController(gameResultVC, animated: true, completion: nil)
+
+                strongSelf.boardView.drawLineAnimated(indexPaths, duration: 0.5)
+//                let viewModel = strongSelf.viewModel.createGameResultViewModel()
+//                let gameResultVC = GameResultViewController(viewModel: viewModel)
+//                strongSelf.presentViewController(gameResultVC, animated: true, completion: nil)
         }
     }
     

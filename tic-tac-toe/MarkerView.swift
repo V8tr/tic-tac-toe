@@ -63,7 +63,7 @@ class MarkerView: UIView {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         
         shapeLayer.strokeEnd = 1.0
-        shapeLayer.addAnimation(animation, forKey: "animateCircle")
+        shapeLayer.addAnimation(animation, forKey: "animatePath")
         
         CATransaction.commit()
     }

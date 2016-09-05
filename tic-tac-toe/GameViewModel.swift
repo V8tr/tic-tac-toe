@@ -11,10 +11,10 @@ import ReactiveCocoa
 import Result
 
 class GameViewModel {
-    let isGameOver: MutableProperty<Bool>
     let boardViewModel: BoardViewModel
     
     let restartSignal: Signal<Void, NoError>
+    let gameOverSignal: Signal<[NSIndexPath], NoError>
 
     lazy var markAction: Action<NSIndexPath, Void, NoError> = { [unowned self] in
         return Action({ indexPath in
@@ -30,31 +30,48 @@ class GameViewModel {
     private let move: MutableProperty<Int>
     private let gameResult: MutableProperty<GameResult>
     private let game: Game
+    private var isGameOver: Bool {
+        return gameResult.value != .InProgress
+    }
     
     private let restartObserver: Observer<Void, NoError>
-    
+    private let gameOverObserver: Observer<[NSIndexPath], NoError>
+
     init(game: Game, activePlayer: Player) {
         self.game = game
         self.activePlayer = MutableProperty(activePlayer)
         boardViewModel = BoardViewModel(self.game.board)
         move = MutableProperty(0)
         gameResult = MutableProperty(self.game.gameResult())
-        isGameOver = MutableProperty(false)
         
         let (restartSignal, restartObserver) = Signal<Void, NoError>.pipe()
         self.restartSignal = restartSignal
         self.restartObserver = restartObserver
         
+        let (gameOverSignal, gameOverObserver) = Signal<[NSIndexPath], NoError>.pipe()
+        self.gameOverSignal = gameOverSignal
+        self.gameOverObserver = gameOverObserver
+        
+        gameResult.producer
+            .observeOn(UIScheduler())
+            .startWithNext { [unowned self] gameResult in
+                guard self.isGameOver else { return }
+                
+                var indexPaths: [NSIndexPath] = []
+                if case .Win(_, let positions) = gameResult {
+                    indexPaths = positions.map { position in return position.toIndexPath() }
+                }
+                self.gameOverObserver.sendNext(indexPaths)
+        }
+        
         self.activePlayer <~ move.producer.map { [unowned self] move in
             let players = self.game.players
             return players[move % players.count]
         }
-        
-        isGameOver <~ gameResult.producer.map { gameResult in return gameResult != .InProgress }
     }
     
     func nextTurn() {
-        guard !isGameOver.value else { return }
+        guard !isGameOver else { return }
         guard let player = activePlayer.value as? AIPlayer else { return }
         guard let position = player.positionToMark(self.game.board) else { return }
         mark(position)

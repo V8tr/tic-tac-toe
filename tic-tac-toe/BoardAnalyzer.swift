@@ -19,54 +19,57 @@ class BoardAnalyzer {
     
     func gameResultForCells(cells: [Cell]) -> GameResult {
         for row in 0..<board.rows {
-            if let winner = winnerInRow(row, cells: cells) {
-                return .Win(winner)
+            if let gameResult = gameResultInRow(row, cells: cells) {
+                return gameResult
             }
         }
         
         for col in 0..<board.cols {
-            if let winner = winnerInColumn(col, cells: cells) {
-                return .Win(winner)
+            if let gameResult = gameResultInColumn(col, cells: cells) {
+                return gameResult
             }
         }
         
-        if let winner = winnerInDiagonal(cells) {
-            return .Win(winner)
+        if let gameResult = gameResultInDiagonal(cells) {
+            return gameResult
         }
         
         return hasEmptyCells(cells) ? .InProgress : .Draw
     }
     
-    private func winnerInRow(row: Int, cells: [Cell]) -> Player? {
+    private func gameResultInRow(row: Int, cells: [Cell]) -> GameResult? {
         let rowCells = cells.filter { $0.row == row }
         print("winner in row \(row)")
-        return winnerInSequence(rowCells)
+        return gameResultInSequence(rowCells)
     }
     
-    private func winnerInColumn(col: Int, cells: [Cell]) -> Player? {
+    private func gameResultInColumn(col: Int, cells: [Cell]) -> GameResult? {
         let colCells = cells.filter { $0.col == col }
         print("winner in column \(col)")
-        return winnerInSequence(colCells)
+        return gameResultInSequence(colCells)
     }
     
-    private func winnerInDiagonal(cells: [Cell]) -> Player? {
+    private func gameResultInDiagonal(cells: [Cell]) -> GameResult? {
         let firstDiagCells = cells.filter { $0.col == $0.row }
         print("winner in first diagonal \(firstDiagCells)")
-        if let player = winnerInSequence(firstDiagCells) {
+        if let player = gameResultInSequence(firstDiagCells) {
             return player
         }
         
         let secondDiagCells = cells.filter { $0.row == board.cols - $0.col - 1 }
         print("winner in second diagonal \(secondDiagCells)")
-        return winnerInSequence(secondDiagCells)
+        return gameResultInSequence(secondDiagCells)
     }
     
-    private func winnerInSequence(cells: [Cell]) -> Player? {
+    private func gameResultInSequence(cells: [Cell]) -> GameResult? {
         var previousMarker: Marker? = nil
         var minMarkedIdx = 0
+        var positions: [Position] = []
+
         while (previousMarker == nil && minMarkedIdx < cells.count) {
             if case .Marked(let marker) = cells[minMarkedIdx].selection {
                 previousMarker = marker
+                positions.append(cells[minMarkedIdx].position)
             }
             minMarkedIdx += 1
         }
@@ -77,22 +80,28 @@ class BoardAnalyzer {
             if case .Marked(let marker) = cells[idx].selection {
                 if (previousMarker == marker) {
                     sequenceLength += 1
+                    positions.append(cells[idx].position)
                     if (sequenceLength >= self.sequenceLength) {
                         break;
                     }
                 }
                 else {
                     sequenceLength = 1
+                    positions = [cells[idx].position]
                 }
                 previousMarker = marker
             }
             else {
                 sequenceLength = 0;
+                positions.removeAll()
             }
         }
         
         print("seqLen \(sequenceLength), marker \(previousMarker) \n")
-        return sequenceLength >= self.sequenceLength ? playerForMarker(previousMarker!) : nil
+        if (sequenceLength < self.sequenceLength) {
+            return nil;
+        }
+        return .Win(playerForMarker(previousMarker!)!, positions)
     }
     
     private func playerForMarker(marker: Marker) -> Player? {

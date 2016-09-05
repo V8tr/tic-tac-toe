@@ -18,7 +18,7 @@ func == (lhs: GameResult, rhs: GameResult) -> Bool {
         return true
     case (.Draw, .Draw):
         return true
-    case (.Win(let p1), .Win(let p2)):
+    case (.Win(let p1, _), .Win(let p2, _)):
         return p1.marker == p2.marker
     default:
         return false

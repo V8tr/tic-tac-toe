@@ -30,7 +30,7 @@ class GameResultViewModel {
     
     var resultImage: UIImage? {
         switch gameResult {
-        case .Win(let player):
+        case .Win(let player, _):
             return UIImage(named: player.marker.imageName())
         case .Draw: 
             return UIImage(named: "draw")

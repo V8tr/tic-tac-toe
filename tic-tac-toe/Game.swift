@@ -11,7 +11,7 @@ import Foundation
 enum GameResult {
     case InProgress
     case Draw
-    case Win(Player)
+    case Win(Player, [Position])
 }
 
 class Game {
