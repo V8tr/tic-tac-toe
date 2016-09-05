@@ -55,6 +55,14 @@ class GameViewController: UIViewController {
             .startWithNext { [weak self] move in
                 self?.viewModel.nextTurn()
         }
+        
+        viewModel.isWaitingForUserInteraction
+            .producer
+            .observeOn(UIScheduler())
+            .startWithNext { [weak self] enabled in
+                self?.view.backgroundColor = enabled ? UIColor.yellowColor() : UIColor.whiteColor()
+                print("isWaitingForUserInteraction: \(enabled)")
+        }
     }
     
     private func openGameResultScreenAfterDelay(delay: NSTimeInterval) {

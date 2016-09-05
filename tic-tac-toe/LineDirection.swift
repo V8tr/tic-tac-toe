@@ -28,9 +28,7 @@ enum LineDirection {
                                                 .Horizontal: horizontalFilter,
                                                 .DiagonalLeft: leftDiagonalFilter,
                                                 .DiagonalRight: rightDiagonalFilter]
-        
-        print(filters)
-        
+                
         for (direction, filter) in filters {
             if indexPaths.count == indexPaths.filter(filter).count {
                 self = direction

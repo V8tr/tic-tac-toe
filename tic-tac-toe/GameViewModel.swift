@@ -21,6 +21,8 @@ class GameViewModel {
     
     let restartSignal: Signal<Void, NoError>
     let gameOverSignal: Signal<[NSIndexPath], NoError>
+    
+    let isWaitingForUserInteraction: MutableProperty<Bool>
 
     lazy var markAction: Action<NSIndexPath, Void, NoError> = { [unowned self] in
         return Action({ indexPath in
@@ -47,6 +49,7 @@ class GameViewModel {
         boardViewModel = BoardViewModel(self.game.board)
         move = MutableProperty(0)
         gameResult = MutableProperty(self.game.gameResult())
+        isWaitingForUserInteraction = MutableProperty(false)
         
         let (restartSignal, restartObserver) = Signal<Void, NoError>.pipe()
         self.restartSignal = restartSignal
@@ -72,6 +75,10 @@ class GameViewModel {
             let players = self.game.players
             return players[move % players.count]
         }
+        
+        isWaitingForUserInteraction <~ self.activePlayer.producer.map { player in
+            return !(player is AIPlayer)
+        }.delay(<#T##interval: NSTimeInterval##NSTimeInterval#>, onScheduler: <#T##DateSchedulerType#>)
     }
     
     func nextTurn() {

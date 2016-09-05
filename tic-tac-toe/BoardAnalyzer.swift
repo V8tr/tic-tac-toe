@@ -39,25 +39,21 @@ class BoardAnalyzer {
     
     private func gameResultInRow(row: Int, cells: [Cell]) -> GameResult? {
         let rowCells = cells.filter { $0.row == row }
-        print("winner in row \(row)")
         return gameResultInSequence(rowCells)
     }
     
     private func gameResultInColumn(col: Int, cells: [Cell]) -> GameResult? {
         let colCells = cells.filter { $0.col == col }
-        print("winner in column \(col)")
         return gameResultInSequence(colCells)
     }
     
     private func gameResultInDiagonal(cells: [Cell]) -> GameResult? {
         let firstDiagCells = cells.filter { $0.col == $0.row }
-        print("winner in first diagonal \(firstDiagCells)")
         if let player = gameResultInSequence(firstDiagCells) {
             return player
         }
         
         let secondDiagCells = cells.filter { $0.row == board.cols - $0.col - 1 }
-        print("winner in second diagonal \(secondDiagCells)")
         return gameResultInSequence(secondDiagCells)
     }
     
@@ -97,10 +93,10 @@ class BoardAnalyzer {
             }
         }
         
-        print("seqLen \(sequenceLength), marker \(previousMarker) \n")
         if (sequenceLength < self.sequenceLength) {
             return nil;
         }
+        
         return .Win(playerForMarker(previousMarker!)!, positions)
     }
     
