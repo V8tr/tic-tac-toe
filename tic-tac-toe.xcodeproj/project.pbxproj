@@ -44,6 +44,8 @@
 		8814A5261D781FC20007537E /* GameResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A5251D781FC20007537E /* GameResultViewModel.swift */; };
 		8814A5281D7863BA0007537E /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A5271D7863BA0007537E /* MarkerView.swift */; };
 		8814A52A1D786D230007537E /* CircleMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A5291D786D230007537E /* CircleMarkerView.swift */; };
+		8865B3671D7D9DB100CC44D6 /* LineDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B3661D7D9DB100CC44D6 /* LineDirection.swift */; };
+		8865B3691D7D9DE500CC44D6 /* LineDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B3681D7D9DE500CC44D6 /* LineDrawer.swift */; };
 		B3162E1EFD9C73C4D847A1DF /* Pods_tic_tac_toe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */; };
 		F7F48A8044649957DADBEE2B /* Pods_tic_tac_toeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */; };
 /* End PBXBuildFile section */
@@ -102,6 +104,8 @@
 		8814A5251D781FC20007537E /* GameResultViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResultViewModel.swift; sourceTree = "<group>"; };
 		8814A5271D7863BA0007537E /* MarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
 		8814A5291D786D230007537E /* CircleMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleMarkerView.swift; sourceTree = "<group>"; };
+		8865B3661D7D9DB100CC44D6 /* LineDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineDirection.swift; sourceTree = "<group>"; };
+		8865B3681D7D9DE500CC44D6 /* LineDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineDrawer.swift; sourceTree = "<group>"; };
 		A0660A645EC018B1B115DCA8 /* Pods-tic-tac-toeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C548BD727F86E27DCAA6FC /* Pods_tic_tac_toe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C512A1D87A31888048D216F3 /* Pods-tic-tac-toeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toeTests/Pods-tic-tac-toeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		8814A4861D6C8A260007537E /* tic-tac-toe */ = {
 			isa = PBXGroup;
 			children = (
+				8865B36A1D7D9DEA00CC44D6 /* Services */,
 				8814A4EC1D7072E60007537E /* Extensions */,
 				8814A4ED1D7072EC0007537E /* ViewControllers */,
 				8814A4EE1D7072F10007537E /* Views */,
@@ -195,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				8814A4FF1D748EB60007537E /* BoardAnalyzer.swift */,
+				8865B3661D7D9DB100CC44D6 /* LineDirection.swift */,
 				8814A4D51D7072AD0007537E /* Board.swift */,
 				8814A4D61D7072AD0007537E /* Cell.swift */,
 				8814A4D71D7072AD0007537E /* Marker.swift */,
@@ -267,6 +273,14 @@
 				8814A4931D6C8A260007537E /* Info.plist */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		8865B36A1D7D9DEA00CC44D6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8865B3681D7D9DE500CC44D6 /* LineDrawer.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,8 +499,10 @@
 				8814A51E1D770AC80007537E /* Array+Additions.swift in Sources */,
 				8814A5231D781F990007537E /* GameResultViewController.swift in Sources */,
 				8814A52A1D786D230007537E /* CircleMarkerView.swift in Sources */,
+				8865B3691D7D9DE500CC44D6 /* LineDrawer.swift in Sources */,
 				8814A4F21D70899D0007537E /* Player.swift in Sources */,
 				8814A4DB1D7072AD0007537E /* Cell.swift in Sources */,
+				8865B3671D7D9DB100CC44D6 /* LineDirection.swift in Sources */,
 				728BF4DD1D799B88009D6CE0 /* CrossMarkerView.swift in Sources */,
 				8814A4DA1D7072AD0007537E /* Board.swift in Sources */,
 				8814A4EA1D7072E40007537E /* Randomization.swift in Sources */,
