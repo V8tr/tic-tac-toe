@@ -19,3 +19,18 @@ enum Selection {
         }
     }
 }
+
+extension Selection: Equatable {
+    
+}
+
+func == (lhs: Selection, rhs: Selection) -> Bool {
+    switch (lhs, rhs) {
+    case (.Empty, .Empty):
+        return true
+    case (.Marked(let m1), .Marked(let m2)):
+        return m1 == m2
+    default:
+        return false
+    }
+}

@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum GameResult {
-    case InProgress
-    case Draw
-    case Win(Player, [Position])
-}
-
 class Game {
     let players: [Player]
     var board: Board!

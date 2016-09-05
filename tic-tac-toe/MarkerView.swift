@@ -26,6 +26,10 @@ class MarkerView: UIView {
         return UIBezierPath()
     }
     
+    private var animationDuration: NSTimeInterval {
+        return 0.4
+    }
+    
     private var strokeColor: UIColor {
         return UIColor.blackColor()
     }
@@ -46,7 +50,7 @@ class MarkerView: UIView {
         layer.addSublayer(shapeLayer)
     }
     
-    func animate(duration: NSTimeInterval, completion: () -> ()) {
+    func animate(completion: () -> ()) {
         CATransaction.begin()
         CATransaction.setCompletionBlock({
             completion()
@@ -57,7 +61,7 @@ class MarkerView: UIView {
         shapeLayer.path = path.CGPath
         
         let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = duration
+        animation.duration = animationDuration
         animation.fromValue = 0
         animation.toValue = 1
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)

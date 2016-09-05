@@ -59,10 +59,9 @@ class CellCollectionCell: UICollectionViewCell {
         markerView!.layoutIfNeeded()
         
         if (viewModel.canAnimate) {
-            markerView!.animate(CellViewModel.animationDuration,
-                                completion: { [weak self] in
-                                    self?.viewModel.canAnimate = false
-                })
+            markerView!.animate { [weak self] in
+                self?.viewModel.canAnimate = false
+            }
         }
         else {
             markerView!.draw()

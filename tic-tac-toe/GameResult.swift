@@ -1,12 +1,18 @@
 //
-//  GameResult+Equatable.swift
+//  GameResult.swift
 //  tic-tac-toe
 //
-//  Created by Vadim Bulavin on 8/29/16.
+//  Created by Vadim Bulavin on 9/5/16.
 //  Copyright © 2016 Vadim Bulavin. All rights reserved.
 //
 
 import Foundation
+
+enum GameResult {
+    case InProgress
+    case Draw
+    case Win(Player, [Position])
+}
 
 extension GameResult: Equatable {
     

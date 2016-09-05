@@ -11,7 +11,13 @@ import ReactiveCocoa
 import Result
 
 class GameViewModel {
+    static let gameOverAnimationDuration = 0.5
+    static let delayBetweenMoves = 0.5
+
     let boardViewModel: BoardViewModel
+    
+    let move: MutableProperty<Int>
+    let activePlayer: MutableProperty<Player>
     
     let restartSignal: Signal<Void, NoError>
     let gameOverSignal: Signal<[NSIndexPath], NoError>
@@ -26,8 +32,6 @@ class GameViewModel {
         })
     }()
     
-    private let activePlayer: MutableProperty<Player>
-    private let move: MutableProperty<Int>
     private let gameResult: MutableProperty<GameResult>
     private let game: Game
     private var isGameOver: Bool {

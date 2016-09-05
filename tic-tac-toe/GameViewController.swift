@@ -44,12 +44,26 @@ class GameViewController: UIViewController {
         viewModel.gameOverSignal
             .observeOn(UIScheduler())
             .observeNext { [weak self] indexPaths in
-                guard let strongSelf = self else { return }
-
-                strongSelf.boardView.drawLineAnimated(indexPaths, duration: 0.5)
-//                let viewModel = strongSelf.viewModel.createGameResultViewModel()
-//                let gameResultVC = GameResultViewController(viewModel: viewModel)
-//                strongSelf.presentViewController(gameResultVC, animated: true, completion: nil)
+                self?.boardView.drawLineAnimated(indexPaths, duration: GameViewModel.gameOverAnimationDuration)
+                self?.openGameResultScreenAfterDelay(GameViewModel.gameOverAnimationDuration)
+        }
+        
+        viewModel.move.producer
+            .observeOn(UIScheduler())
+            .delay(GameViewModel.delayBetweenMoves, onScheduler: QueueScheduler.mainQueueScheduler)
+            .skip(1)
+            .startWithNext { [weak self] move in
+                self?.viewModel.nextTurn()
+        }
+    }
+    
+    private func openGameResultScreenAfterDelay(delay: NSTimeInterval) {
+        let gameResultViewModel = viewModel.createGameResultViewModel()
+        let gameResultVC = GameResultViewController(viewModel: gameResultViewModel)
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+        
+        dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
+            self?.presentViewController(gameResultVC, animated: true, completion: nil)
         }
     }
     
@@ -66,6 +80,6 @@ class GameViewController: UIViewController {
 extension GameViewController: BoardViewDelegate {
     func boardView(boardView: BoardView, didTapCellAtIndexPath indexPath: NSIndexPath) {
         viewModel.markAction.apply(indexPath).producer.start()
-        viewModel.nextTurn()
+//        viewModel.nextTurn()
     }
 }

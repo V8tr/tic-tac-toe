@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircleMarkerView: MarkerView {
+class CircleMarkerView: MarkerView {    
     override var path: UIBezierPath {
         return UIBezierPath(arcCenter: self.center,
                             radius: (self.frame.size.width - 10) / 2,
