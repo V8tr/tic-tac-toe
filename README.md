@@ -13,4 +13,4 @@ Features
 ------------
 * [ReactiveCocoa 4][reactive-cocoa]
 * Naive AI
-* Drawing Animations
+* Custom animations and transitions
