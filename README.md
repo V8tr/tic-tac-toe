@@ -1,14 +1,16 @@
-Tic Tac Toe (also called Noughts and Crosses)
+Tic Tac Toe
 =========
-
-This project showcases the Model-View-ViewModel (MVVM) architecture with [ReactiveCocoa 4][reactive-cocoa].
+### Current version:
+Tic Tac Toe is a classic puzzle game also called Noughts and Crosses. The project has the Model-View-ViewModel (MVVM) architecture with [ReactiveCocoa 4][reactive-cocoa] and is written in Swift.
 
 [reactive-cocoa]: https://github.com/ReactiveCocoa/ReactiveCocoa
 
 Requirements
 ------------
-The project is written in Swift, it runs on iOS 9+ and requires Xcode 7.3 with Swift 2.2 to build.
+Tic Tac Toe is runs on iOS 9+ and requires Xcode 7.3 with Swift 2.2 to build.
 
 Features
 ------------
-* Primitive AI
+* [ReactiveCocoa 4][reactive-cocoa]
+* Naive AI
+* Drawing Animations
