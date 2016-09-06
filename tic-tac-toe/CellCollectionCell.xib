@@ -15,31 +15,31 @@
                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sy2-37-dm5">
-                            <rect key="frame" x="0.0" y="0.0" width="5" height="100"/>
+                            <rect key="frame" x="0.0" y="0.0" width="8" height="100"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="5" id="EeM-LZ-M7V"/>
+                                <constraint firstAttribute="width" constant="8" id="EeM-LZ-M7V"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmb-UN-NGJ">
-                            <rect key="frame" x="0.0" y="0.0" width="100" height="5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="8"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="5" id="ZNA-CW-32d"/>
+                                <constraint firstAttribute="height" constant="8" id="ZNA-CW-32d"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUN-Gq-2Ba">
-                            <rect key="frame" x="95" y="0.0" width="5" height="100"/>
+                            <rect key="frame" x="92" y="0.0" width="8" height="100"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="5" id="5oc-3w-pQ7"/>
+                                <constraint firstAttribute="width" constant="8" id="5oc-3w-pQ7"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xw6-Kz-TN6">
-                            <rect key="frame" x="0.0" y="95" width="100" height="5"/>
+                            <rect key="frame" x="0.0" y="92" width="100" height="8"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="5" id="B4V-Zg-uA8"/>
+                                <constraint firstAttribute="height" constant="8" id="B4V-Zg-uA8"/>
                             </constraints>
                         </view>
                     </subviews>

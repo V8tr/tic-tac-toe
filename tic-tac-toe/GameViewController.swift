@@ -41,6 +41,9 @@ class GameViewController: UIViewController {
             make.edges.equalTo(boardContainerView)
         }
         
+        playerLabel.font = FontsConfiguration.activePlayerFont
+        playerLabel.textColor = ColorsConfiguration.activePlayerName
+        
         bindViewModel()
     }
     

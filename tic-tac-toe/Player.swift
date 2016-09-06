@@ -18,6 +18,6 @@ class Player {
     }
     
     var displayName: String {
-        return "\(marker.toString()) \(name)"
+        return "\(marker.toString())   \(name)"
     }
 }

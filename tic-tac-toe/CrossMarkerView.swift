@@ -26,4 +26,8 @@ class CrossMarkerView: MarkerView {
     override var strokeColor: UIColor {
         return ColorsConfiguration.crossMarker
     }
+    
+    override var lineWidth: CGFloat {
+        return 10.0
+    }
 }

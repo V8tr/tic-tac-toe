@@ -12,6 +12,7 @@ import ReactiveCocoa
 class GameResultViewController: UIViewController {
     @IBOutlet weak var restartButton: UIButton!
     @IBOutlet weak var winnerViewContainer: UIView!
+    @IBOutlet weak var gameOverLabel: UILabel!
     
     var restartAction: CocoaAction!
     private let viewModel: GameResultViewModel
@@ -28,9 +29,16 @@ class GameResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        restartButton.setTitle("game-result.button.restart".localized, forState: .Normal)
-
-        winnerViewContainer.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = ColorsConfiguration.gameResultBackground
+        winnerViewContainer.backgroundColor = ColorsConfiguration.winnerBackground
+        
+        restartButton.setTitle("game-result.button.restart".localized.uppercaseString, forState: .Normal)
+        restartButton.titleLabel?.font = FontsConfiguration.gameResultRestartButtonFont
+        restartButton.setTitleColor(ColorsConfiguration.gameResultRestartTitle, forState: .Normal)
+        
+        gameOverLabel.text = "game-result.label.game-over".localized
+        gameOverLabel.font = FontsConfiguration.gameResultGameOverFont
+        gameOverLabel.textColor = ColorsConfiguration.gameResultLabel
         
         bindViewModel()
     }

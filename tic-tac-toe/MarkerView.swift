@@ -41,6 +41,10 @@ class MarkerView: UIView {
         return UIColor.blackColor()
     }
     
+    var lineWidth: CGFloat {
+        return 1.0
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -48,8 +52,6 @@ class MarkerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clearColor()
-        
-        let lineWidth: CGFloat = 8.0
         
         shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.clearColor().CGColor

@@ -31,6 +31,7 @@ class WinnerView: UIView {
         drawLabel.text = "game-result.label.winner".localized.uppercaseString
         drawLabel.textAlignment = .Center
         drawLabel.font = FontsConfiguration.gameResultFont
+        drawLabel.textColor = ColorsConfiguration.gameResultLabel
         addSubview(drawLabel)
         
         drawLabel.snp_makeConstraints { make in

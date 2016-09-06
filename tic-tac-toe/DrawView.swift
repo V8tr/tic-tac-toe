@@ -42,6 +42,7 @@ class DrawView: UIView {
         drawLabel.text = "game-result.label.draw".localized.uppercaseString
         drawLabel.textAlignment = .Center
         drawLabel.font = FontsConfiguration.gameResultFont
+        drawLabel.textColor = ColorsConfiguration.gameResultLabel
         addSubview(drawLabel)
         
         drawLabel.snp_makeConstraints { make in

@@ -21,4 +21,8 @@ class CircleMarkerView: MarkerView {
     override var strokeColor: UIColor {
         return ColorsConfiguration.circleMarker
     }
+    
+    override var lineWidth: CGFloat {
+        return 10.0
+    }
 }

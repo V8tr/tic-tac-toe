@@ -9,5 +9,14 @@
 import UIKit
 
 struct FontsConfiguration {
-    static let gameResultFont = UIFont(name: "HelveticaNeue-Medium", size: 25)
+    typealias FontBuilder = (CGFloat) -> UIFont
+
+    static let appFontOfSize: FontBuilder = { size in
+        return UIFont(name: "HelveticaNeue-Medium", size: size)!
+    }
+    
+    static let gameResultFont = appFontOfSize(40)
+    static let gameResultGameOverFont = appFontOfSize(25)
+    static let gameResultRestartButtonFont = appFontOfSize(25)
+    static let activePlayerFont = appFontOfSize(20)
 }

@@ -8,6 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameResultViewController" customModule="tic_tac_toe" customModuleProvider="target">
             <connections>
+                <outlet property="gameOverLabel" destination="Fty-8V-n2u" id="8WO-BY-AnR"/>
                 <outlet property="restartButton" destination="DJV-Yd-5HY" id="vak-sa-n79"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="winnerViewContainer" destination="wZp-RD-zdy" id="uuL-Wv-QHV"/>
@@ -32,12 +33,20 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fty-8V-n2u">
+                    <rect key="frame" x="166" y="117" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wZp-RD-zdy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="97b-ji-LG8"/>
                 <constraint firstItem="wZp-RD-zdy" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="J6F-F9-0D1"/>
+                <constraint firstItem="wZp-RD-zdy" firstAttribute="top" secondItem="Fty-8V-n2u" secondAttribute="bottom" constant="8" id="JVn-05-hG1"/>
                 <constraint firstItem="DJV-Yd-5HY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="Kcf-4M-9cI"/>
+                <constraint firstItem="Fty-8V-n2u" firstAttribute="centerX" secondItem="wZp-RD-zdy" secondAttribute="centerX" id="NCH-Dx-Oen"/>
                 <constraint firstItem="DJV-Yd-5HY" firstAttribute="top" secondItem="wZp-RD-zdy" secondAttribute="bottom" constant="7.5" id="aVY-yb-Bpa"/>
                 <constraint firstAttribute="trailing" secondItem="DJV-Yd-5HY" secondAttribute="trailing" constant="12" id="fRG-7y-2uA"/>
                 <constraint firstItem="wZp-RD-zdy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="riJ-4l-nlm"/>
