@@ -38,9 +38,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .observeNext { [unowned self] in
                 self.startNewGame()
         }
-        
-        let gameVC = GameViewController(viewModel: viewModel)
-        window!.rootViewController = gameVC
+
+        UIView.transitionWithView(
+            self.window!,
+            duration: 0.5,
+            options: [.TransitionFlipFromLeft],
+            animations: { [unowned self] in
+                let gameVC = GameViewController(viewModel: viewModel)
+                self.window!.rootViewController = gameVC
+            },
+            completion: nil)
     }
 
     func applicationWillResignActive(application: UIApplication) {
