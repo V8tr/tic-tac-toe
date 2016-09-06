@@ -27,8 +27,14 @@ class GameViewModel {
     lazy var markAction: Action<NSIndexPath, Void, NoError> = { [unowned self] in
         return Action({ indexPath in
             return SignalProducer<Void, NoError> { observer, _ in
-                self.isWaitingForUserInteraction.value = false
                 let position = Position(indexPath: indexPath)
+
+                guard self.game.board.isValidMoveAt(position) else {
+                    observer.sendCompleted()
+                    return
+                }
+                
+                self.isWaitingForUserInteraction.value = false
                 self.mark(position)
                 observer.sendCompleted()
             }
@@ -45,9 +51,9 @@ class GameViewModel {
     private let restartObserver: Observer<Void, NoError>
     private let gameOverObserver: Observer<[NSIndexPath], NoError>
 
-    init(game: Game, activePlayer: Player) {
+    init(game: Game) {
         self.game = game
-        self.activePlayer = MutableProperty(activePlayer)
+        self.activePlayer = MutableProperty(game.players.first!)
         boardViewModel = BoardViewModel(self.game.board)
         move = MutableProperty(0)
         gameResult = MutableProperty(self.game.gameResult())
@@ -64,6 +70,7 @@ class GameViewModel {
         
         gameResult.producer
             .observeOn(UIScheduler())
+            .delay(self.dynamicType.delayBetweenMoves, onScheduler: QueueScheduler.mainQueueScheduler)
             .startWithNext { [unowned self] gameResult in
                 guard self.isGameOver else { return }
                 

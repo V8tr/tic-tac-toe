@@ -23,10 +23,7 @@ class GameViewController: UIViewController {
     
     init(viewModel: GameViewModel) {
         self.viewModel = viewModel
-        
         super.init(nibName: "GameViewController", bundle: nil)
-        
-        bindViewModel()
     }
 
     override func viewDidLoad() {
@@ -39,14 +36,17 @@ class GameViewController: UIViewController {
         boardView.snp_makeConstraints { (make) in
             make.edges.equalTo(boardContainerView)
         }
+        
+        bindViewModel()
     }
     
     private func bindViewModel() {
         viewModel.gameOverSignal
             .observeOn(UIScheduler())
             .observeNext { [weak self] indexPaths in
+                let presentationDuration = 0.1
                 self?.boardView.drawLineAnimated(indexPaths, duration: GameViewModel.gameOverAnimationDuration)
-                self?.openGameResultScreenAfterDelay(GameViewModel.gameOverAnimationDuration)
+                self?.openGameResultScreenAfterDelay(GameViewModel.gameOverAnimationDuration + presentationDuration)
         }
         
         viewModel.move.producer
@@ -60,8 +60,8 @@ class GameViewController: UIViewController {
         viewModel.isWaitingForUserInteraction
             .producer
             .observeOn(UIScheduler())
-            .startWithNext { [weak self] enabled in
-                self?.view.backgroundColor = enabled ? UIColor.yellowColor() : UIColor.whiteColor()
+            .startWithNext { [weak self] isWaitingForUserInteraction in
+                self?.boardView.userInteractionEnabled = isWaitingForUserInteraction
         }
         
         DynamicProperty(object: playerLabel, keyPath: "text") <~ viewModel.activePlayerName
@@ -70,6 +70,7 @@ class GameViewController: UIViewController {
     private func openGameResultScreenAfterDelay(delay: NSTimeInterval) {
         let gameResultViewModel = viewModel.createGameResultViewModel()
         let gameResultVC = GameResultViewController(viewModel: gameResultViewModel)
+        gameResultVC.transitioningDelegate = self
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
         
         dispatch_after(delayTime, dispatch_get_main_queue()) { [weak self] in
@@ -91,4 +92,8 @@ extension GameViewController: BoardViewDelegate {
     func boardView(boardView: BoardView, didTapCellAtIndexPath indexPath: NSIndexPath) {
         viewModel.markAction.apply(indexPath).producer.start()
     }
+}
+
+extension GameViewController: UIViewControllerTransitioningDelegate {
+    
 }
