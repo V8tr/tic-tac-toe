@@ -12,7 +12,7 @@ class CrossMarkerView: MarkerView {
     override var path: UIBezierPath {
         let path = UIBezierPath()
         
-        let offset: CGFloat = 10.0
+        let offset: CGFloat = bounds.size.width * 0.2
         
         path.moveToPoint(CGPoint(x: bounds.maxX - offset, y: offset))
         path.addLineToPoint(CGPoint(x: offset, y: bounds.maxY - offset))

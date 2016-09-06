@@ -25,8 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func startNewGame() {
         let players = [
-            Player(name: "V8tr", marker: .Circle),
-            AIPlayer(name: "Dude", marker: .Cross)
+            Player(name: "V8tr", marker: .Cross),
+            AIPlayer(name: "Dude", marker: .Circle)
         ]
         let board = Board(rows: 3, cols: 3)
         let game = Game(players: players, board: board)

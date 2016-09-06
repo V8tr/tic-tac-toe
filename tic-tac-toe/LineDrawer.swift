@@ -19,13 +19,15 @@ class LineDrawer {
         self.cols = cols
     }
     
-    func drawLineAnimated(indexPaths: [NSIndexPath], duration: NSTimeInterval) {
+    func drawLineAnimated(indexPaths: [NSIndexPath], duration: NSTimeInterval, lineColor: UIColor) {
         guard let path = pathForIndexPaths(indexPaths) else { return }
+        
+        let lineWidth: CGFloat = 8.0
         
         let shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.clearColor().CGColor
-        shapeLayer.strokeColor = UIColor.blackColor().CGColor
-        shapeLayer.lineWidth = 5.0;
+        shapeLayer.strokeColor = lineColor.CGColor
+        shapeLayer.lineWidth = lineWidth
         shapeLayer.strokeEnd = 0.0
         shapeLayer.path = path.CGPath
         collectionView.layer.addSublayer(shapeLayer)

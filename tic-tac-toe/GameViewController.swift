@@ -48,9 +48,13 @@ class GameViewController: UIViewController {
         viewModel.gameOverSignal
             .observeOn(UIScheduler())
             .observeNext { [weak self] indexPaths in
-                let presentationDuration = 0.0
-                self?.boardView.drawLineAnimated(indexPaths, duration: GameViewModel.gameOverAnimationDuration)
-                self?.openGameResultScreenAfterDelay(GameViewModel.gameOverAnimationDuration + presentationDuration)
+                guard let strongSelf = self else { return }
+                
+                strongSelf.boardView.drawLineAnimated(indexPaths,
+                    duration: GameViewModel.gameOverAnimationDuration,
+                    lineColor: strongSelf.viewModel.activePlayerColor)
+                
+                strongSelf.openGameResultScreenAfterDelay(GameViewModel.gameOverAnimationDuration)
         }
         
         viewModel.move.producer

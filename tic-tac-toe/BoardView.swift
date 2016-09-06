@@ -39,8 +39,8 @@ class BoardView : UIView {
         bindViewModel()
     }
     
-    func drawLineAnimated(indexPaths: [NSIndexPath], duration: NSTimeInterval) {
-        drawer.drawLineAnimated(indexPaths, duration: duration)
+    func drawLineAnimated(indexPaths: [NSIndexPath], duration: NSTimeInterval, lineColor: UIColor) {
+        drawer.drawLineAnimated(indexPaths, duration: duration, lineColor: lineColor)
     }
     
     private func setupCollectionView() {

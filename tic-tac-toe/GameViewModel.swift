@@ -41,6 +41,10 @@ class GameViewModel {
         })
     }()
     
+    var activePlayerColor: UIColor {
+        return activePlayer.value.marker == .Cross ? ColorsConfiguration.crossMarker : ColorsConfiguration.circleMarker
+    }
+    
     private let gameResult: MutableProperty<GameResult>
     private let activePlayer: MutableProperty<Player>
     private let game: Game
