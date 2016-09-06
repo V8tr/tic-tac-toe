@@ -17,6 +17,13 @@ enum MarkerViewFactory {
             return EmptyMarkerView(frame: CGRectZero)
         }
     }
+    
+    static func markerViewForMarker(marker: Marker) -> MarkerView {
+        switch marker {
+        case .Circle: return CircleMarkerView(frame: CGRectZero)
+        case .Cross: return CrossMarkerView(frame: CGRectZero)
+        }
+    }
 }
 
 class MarkerView: UIView {
@@ -46,7 +53,7 @@ class MarkerView: UIView {
         shapeLayer.fillColor = UIColor.clearColor().CGColor
         shapeLayer.strokeColor = strokeColor.CGColor
         shapeLayer.lineWidth = 5.0;
-        shapeLayer.strokeEnd = 0.0
+        shapeLayer.strokeEnd = 1.0
         layer.addSublayer(shapeLayer)
     }
     
@@ -66,7 +73,6 @@ class MarkerView: UIView {
         animation.toValue = 1
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         
-        shapeLayer.strokeEnd = 1.0
         shapeLayer.addAnimation(animation, forKey: "animatePath")
         
         CATransaction.commit()
@@ -75,5 +81,10 @@ class MarkerView: UIView {
     func draw() {
         shapeLayer.path = path.CGPath
         shapeLayer.strokeEnd = 1.0
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        shapeLayer.path = path.CGPath
     }
 }

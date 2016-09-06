@@ -63,9 +63,6 @@ class CellCollectionCell: UICollectionViewCell {
                 self?.viewModel.canAnimate = false
             }
         }
-        else {
-            markerView!.draw()
-        }
     }
 
     private func updateBorders(borders: [CellBorder]) {

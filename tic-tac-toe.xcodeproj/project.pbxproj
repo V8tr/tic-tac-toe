@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		722717CE1D7EA81C0037927E /* ScaleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717CD1D7EA81C0037927E /* ScaleAnimator.swift */; };
+		722717D01D7EC3240037927E /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717CF1D7EC3240037927E /* DrawView.swift */; };
 		728BF4DB1D79994F009D6CE0 /* EmptyMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF4DA1D79994F009D6CE0 /* EmptyMarkerView.swift */; };
 		728BF4DD1D799B88009D6CE0 /* CrossMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */; };
 		8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4871D6C8A260007537E /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		199802E69C9FE656CE6CADED /* Pods_tic_tac_toeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tic_tac_toeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E7F58DD48D6BBCA94B2127 /* Pods-tic-tac-toe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toe.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toe/Pods-tic-tac-toe.release.xcconfig"; sourceTree = "<group>"; };
 		722717CD1D7EA81C0037927E /* ScaleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAnimator.swift; sourceTree = "<group>"; };
+		722717CF1D7EC3240037927E /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		728BF4DA1D79994F009D6CE0 /* EmptyMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyMarkerView.swift; sourceTree = "<group>"; };
 		728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossMarkerView.swift; sourceTree = "<group>"; };
 		8814A4841D6C8A260007537E /* tic-tac-toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tic-tac-toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -245,6 +247,7 @@
 		8814A4EE1D7072F10007537E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				722717CF1D7EC3240037927E /* DrawView.swift */,
 				8814A5271D7863BA0007537E /* MarkerView.swift */,
 				8814A5291D786D230007537E /* CircleMarkerView.swift */,
 				728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */,
@@ -509,6 +512,7 @@
 				8814A5261D781FC20007537E /* GameResultViewModel.swift in Sources */,
 				8814A4DC1D7072AD0007537E /* Marker.swift in Sources */,
 				8814A5191D75DFF20007537E /* CellCollectionCell.swift in Sources */,
+				722717D01D7EC3240037927E /* DrawView.swift in Sources */,
 				722717CE1D7EA81C0037927E /* ScaleAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

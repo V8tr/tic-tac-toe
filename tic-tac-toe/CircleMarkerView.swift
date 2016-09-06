@@ -10,8 +10,8 @@ import UIKit
 
 class CircleMarkerView: MarkerView {    
     override var path: UIBezierPath {
-        return UIBezierPath(arcCenter: self.center,
-                            radius: (self.frame.size.width - 10) / 2,
+        return UIBezierPath(arcCenter: CGPoint(x: CGRectGetMidX(bounds), y: CGRectGetMidY(bounds)),
+                            radius: (bounds.size.width - 10) / 2,
                             startAngle: 0.0,
                             endAngle: CGFloat(M_PI * 2.0),
                             clockwise: true)

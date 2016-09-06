@@ -121,7 +121,7 @@ class LineDrawer {
         else if (isLeft) {
             switch direction {
             case .Vertical: return CGPoint(x: 0.5, y: 0.5)
-            case .Horizontal: return CGPoint(x: 0.5, y: 0.5)
+            case .Horizontal: return CGPoint(x: 0.0, y: 0.5)
             default:
                 assert(false)
                 return nil

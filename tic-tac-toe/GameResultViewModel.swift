@@ -38,4 +38,12 @@ class GameResultViewModel {
             return nil
         }
     }
+    
+    func createWinnerView() -> UIView {
+        switch gameResult {
+        case .Win(let player, _): return MarkerViewFactory.markerViewForMarker(player.marker)
+        case .Draw: return DrawView(frame: CGRect.zero)
+        default: return UIView()
+        }
+    }
 }
