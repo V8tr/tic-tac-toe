@@ -34,6 +34,7 @@ class BoardView : UIView {
     init(viewModel: BoardViewModel) {
         self.viewModel = viewModel
         super.init(frame: CGRectZero)
+        backgroundColor = UIColor.clearColor()
         setupCollectionView()
         bindViewModel()
     }
@@ -50,7 +51,7 @@ class BoardView : UIView {
         collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.yellowColor()
+        collectionView.backgroundColor = UIColor.clearColor()
         
         collectionView.registerNib(CellCollectionCell.nib, forCellWithReuseIdentifier: CellCollectionCell.ID)
         

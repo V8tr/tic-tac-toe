@@ -37,7 +37,7 @@ class MarkerView: UIView {
         return 0.4
     }
     
-    private var strokeColor: UIColor {
+    var strokeColor: UIColor {
         return UIColor.blackColor()
     }
     
@@ -47,12 +47,14 @@ class MarkerView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clearColor()
+        
+        let lineWidth: CGFloat = 8.0
         
         shapeLayer = CAShapeLayer()
         shapeLayer.fillColor = UIColor.clearColor().CGColor
         shapeLayer.strokeColor = strokeColor.CGColor
-        shapeLayer.lineWidth = 5.0;
+        shapeLayer.lineWidth = lineWidth
         shapeLayer.strokeEnd = 1.0
         layer.addSublayer(shapeLayer)
     }

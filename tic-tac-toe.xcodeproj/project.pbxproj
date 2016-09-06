@@ -11,6 +11,7 @@
 		722717D01D7EC3240037927E /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717CF1D7EC3240037927E /* DrawView.swift */; };
 		722717D21D7EEAD40037927E /* FontsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717D11D7EEAD40037927E /* FontsConfiguration.swift */; };
 		722717D61D7EEFE30037927E /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717D51D7EEFE30037927E /* WinnerView.swift */; };
+		722717D81D7EF16E0037927E /* ColorsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717D71D7EF16E0037927E /* ColorsConfiguration.swift */; };
 		728BF4DB1D79994F009D6CE0 /* EmptyMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF4DA1D79994F009D6CE0 /* EmptyMarkerView.swift */; };
 		728BF4DD1D799B88009D6CE0 /* CrossMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */; };
 		8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4871D6C8A260007537E /* AppDelegate.swift */; };
@@ -68,6 +69,7 @@
 		722717CF1D7EC3240037927E /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		722717D11D7EEAD40037927E /* FontsConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsConfiguration.swift; sourceTree = "<group>"; };
 		722717D51D7EEFE30037927E /* WinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
+		722717D71D7EF16E0037927E /* ColorsConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsConfiguration.swift; sourceTree = "<group>"; };
 		728BF4DA1D79994F009D6CE0 /* EmptyMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyMarkerView.swift; sourceTree = "<group>"; };
 		728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossMarkerView.swift; sourceTree = "<group>"; };
 		8814A4841D6C8A260007537E /* tic-tac-toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tic-tac-toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,6 +284,7 @@
 				8814A4FF1D748EB60007537E /* BoardAnalyzer.swift */,
 				722717CD1D7EA81C0037927E /* ScaleAnimator.swift */,
 				722717D11D7EEAD40037927E /* FontsConfiguration.swift */,
+				722717D71D7EF16E0037927E /* ColorsConfiguration.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				8814A5161D75C1D40007537E /* AIPlayer.swift in Sources */,
 				8865B36C1D7DA35700CC44D6 /* Position.swift in Sources */,
 				8814A5231D781F990007537E /* GameResultViewController.swift in Sources */,
+				722717D81D7EF16E0037927E /* ColorsConfiguration.swift in Sources */,
 				8814A52A1D786D230007537E /* CircleMarkerView.swift in Sources */,
 				8865B3691D7D9DE500CC44D6 /* LineDrawer.swift in Sources */,
 				8814A4F21D70899D0007537E /* Player.swift in Sources */,

@@ -10,10 +10,15 @@ import UIKit
 
 class CircleMarkerView: MarkerView {    
     override var path: UIBezierPath {
+        let offset: CGFloat = 20
         return UIBezierPath(arcCenter: CGPoint(x: CGRectGetMidX(bounds), y: CGRectGetMidY(bounds)),
-                            radius: (bounds.size.width - 10) / 2,
+                            radius: (bounds.size.width - offset) / 2,
                             startAngle: 0.0,
                             endAngle: CGFloat(M_PI * 2.0),
                             clockwise: true)
+    }
+    
+    override var strokeColor: UIColor {
+        return ColorsConfiguration.circleMarker
     }
 }

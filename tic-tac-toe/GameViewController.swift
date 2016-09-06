@@ -30,8 +30,11 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = ColorsConfiguration.gameBackground
+        
         boardView = BoardView(viewModel: viewModel.boardViewModel)
         boardView.delegate = self
+        boardContainerView.backgroundColor = UIColor.clearColor()
         boardContainerView.addSubview(boardView)
         
         boardView.snp_makeConstraints { (make) in

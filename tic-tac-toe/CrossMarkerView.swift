@@ -12,12 +12,18 @@ class CrossMarkerView: MarkerView {
     override var path: UIBezierPath {
         let path = UIBezierPath()
         
-        path.moveToPoint(CGPoint(x: bounds.maxX, y: 0.0))
-        path.addLineToPoint(CGPoint(x: 0.0, y: bounds.maxY))
+        let offset: CGFloat = 10.0
         
-        path.moveToPoint(CGPoint.zero)
-        path.addLineToPoint(CGPoint(x: bounds.maxX, y: bounds.maxY))
+        path.moveToPoint(CGPoint(x: bounds.maxX - offset, y: offset))
+        path.addLineToPoint(CGPoint(x: offset, y: bounds.maxY - offset))
+        
+        path.moveToPoint(CGPoint(x: offset, y: offset))
+        path.addLineToPoint(CGPoint(x: bounds.maxX - offset, y: bounds.maxY - offset))
         
         return path
+    }
+    
+    override var strokeColor: UIColor {
+        return ColorsConfiguration.crossMarker
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,35 +14,32 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdq-pz-cd8">
                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z2Q-nz-LT4">
-                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                        </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sy2-37-dm5">
-                            <rect key="frame" x="0.0" y="0.0" width="1" height="100"/>
+                            <rect key="frame" x="0.0" y="0.0" width="5" height="100"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="1" id="EeM-LZ-M7V"/>
+                                <constraint firstAttribute="width" constant="5" id="EeM-LZ-M7V"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmb-UN-NGJ">
-                            <rect key="frame" x="0.0" y="0.0" width="100" height="1"/>
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1" id="ZNA-CW-32d"/>
+                                <constraint firstAttribute="height" constant="5" id="ZNA-CW-32d"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zUN-Gq-2Ba">
-                            <rect key="frame" x="99" y="0.0" width="1" height="100"/>
+                            <rect key="frame" x="95" y="0.0" width="5" height="100"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="1" id="5oc-3w-pQ7"/>
+                                <constraint firstAttribute="width" constant="5" id="5oc-3w-pQ7"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xw6-Kz-TN6">
-                            <rect key="frame" x="0.0" y="99" width="100" height="1"/>
+                            <rect key="frame" x="0.0" y="95" width="100" height="5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1" id="B4V-Zg-uA8"/>
+                                <constraint firstAttribute="height" constant="5" id="B4V-Zg-uA8"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -50,7 +47,6 @@
                     <constraints>
                         <constraint firstItem="zUN-Gq-2Ba" firstAttribute="top" secondItem="Mdq-pz-cd8" secondAttribute="top" id="8YY-IH-qmR"/>
                         <constraint firstAttribute="bottom" secondItem="sy2-37-dm5" secondAttribute="bottom" id="8uZ-ll-ql4"/>
-                        <constraint firstAttribute="bottom" secondItem="z2Q-nz-LT4" secondAttribute="bottom" id="DKl-vO-nHh"/>
                         <constraint firstItem="sy2-37-dm5" firstAttribute="leading" secondItem="Mdq-pz-cd8" secondAttribute="leading" id="GEb-oC-yPA"/>
                         <constraint firstItem="xw6-Kz-TN6" firstAttribute="leading" secondItem="Mdq-pz-cd8" secondAttribute="leading" id="GGd-wD-uyo"/>
                         <constraint firstAttribute="trailing" secondItem="zUN-Gq-2Ba" secondAttribute="trailing" id="MMa-LX-sfP"/>
@@ -58,11 +54,8 @@
                         <constraint firstItem="rmb-UN-NGJ" firstAttribute="leading" secondItem="Mdq-pz-cd8" secondAttribute="leading" id="Udp-7U-og4"/>
                         <constraint firstAttribute="bottom" secondItem="zUN-Gq-2Ba" secondAttribute="bottom" id="bmT-mh-4fZ"/>
                         <constraint firstAttribute="trailing" secondItem="rmb-UN-NGJ" secondAttribute="trailing" id="c9M-ed-Sfr"/>
-                        <constraint firstItem="z2Q-nz-LT4" firstAttribute="leading" secondItem="Mdq-pz-cd8" secondAttribute="leading" id="gcG-Pg-6ya"/>
                         <constraint firstItem="rmb-UN-NGJ" firstAttribute="top" secondItem="Mdq-pz-cd8" secondAttribute="top" id="hTR-Ak-DDO"/>
-                        <constraint firstItem="z2Q-nz-LT4" firstAttribute="top" secondItem="Mdq-pz-cd8" secondAttribute="top" id="jD2-2Y-goh"/>
                         <constraint firstItem="sy2-37-dm5" firstAttribute="top" secondItem="Mdq-pz-cd8" secondAttribute="top" id="sL5-KF-9qB"/>
-                        <constraint firstAttribute="trailing" secondItem="z2Q-nz-LT4" secondAttribute="trailing" id="sSG-mg-zZx"/>
                         <constraint firstAttribute="trailing" secondItem="xw6-Kz-TN6" secondAttribute="trailing" id="vjX-Vv-nBy"/>
                     </constraints>
                 </view>

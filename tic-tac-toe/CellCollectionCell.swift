@@ -10,7 +10,6 @@ import UIKit
 import ReactiveCocoa
 
 class CellCollectionCell: UICollectionViewCell {    
-    @IBOutlet weak var markerImageView: UIImageView!
     @IBOutlet weak var leftBorderView: UIView!
     @IBOutlet weak var topBorderView: UIView!
     @IBOutlet weak var rightBorderView: UIView!
@@ -19,19 +18,24 @@ class CellCollectionCell: UICollectionViewCell {
     
     private var markerView: MarkerView?
     
+    private var borders: [UIView] {
+        return [leftBorderView, topBorderView, rightBorderView, bottomBorderView]
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        for borderView in [leftBorderView, topBorderView, rightBorderView, bottomBorderView] {
+        backgroundColor = UIColor.clearColor()
+        customContentView.backgroundColor = UIColor.clearColor()
+        for borderView in borders {
             borderView.hidden = true
-            borderView.backgroundColor = UIColor.blackColor()
+            borderView.backgroundColor = ColorsConfiguration.boardBorder
         }
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        for borderView in [leftBorderView, topBorderView, rightBorderView, bottomBorderView] {
+        for borderView in borders {
             borderView.hidden = true
-            borderView.backgroundColor = UIColor.blackColor()
         }
         if markerView != nil {
             self.markerView!.removeFromSuperview()
