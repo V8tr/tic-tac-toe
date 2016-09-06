@@ -10,3 +10,5 @@
 "game.alert.draw" = "Draw";
 "game.alert.win-format" = "%@ won";
 "game-result.button.restart" = "Restart";
+"game-result.label.draw" = "Draw";
+"game-result.label.winner" = "Winner";

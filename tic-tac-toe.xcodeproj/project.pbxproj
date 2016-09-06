@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		722717CE1D7EA81C0037927E /* ScaleAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717CD1D7EA81C0037927E /* ScaleAnimator.swift */; };
 		722717D01D7EC3240037927E /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717CF1D7EC3240037927E /* DrawView.swift */; };
+		722717D21D7EEAD40037927E /* FontsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717D11D7EEAD40037927E /* FontsConfiguration.swift */; };
+		722717D61D7EEFE30037927E /* WinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722717D51D7EEFE30037927E /* WinnerView.swift */; };
 		728BF4DB1D79994F009D6CE0 /* EmptyMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF4DA1D79994F009D6CE0 /* EmptyMarkerView.swift */; };
 		728BF4DD1D799B88009D6CE0 /* CrossMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */; };
 		8814A4881D6C8A260007537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8814A4871D6C8A260007537E /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 		32E7F58DD48D6BBCA94B2127 /* Pods-tic-tac-toe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tic-tac-toe.release.xcconfig"; path = "Pods/Target Support Files/Pods-tic-tac-toe/Pods-tic-tac-toe.release.xcconfig"; sourceTree = "<group>"; };
 		722717CD1D7EA81C0037927E /* ScaleAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleAnimator.swift; sourceTree = "<group>"; };
 		722717CF1D7EC3240037927E /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		722717D11D7EEAD40037927E /* FontsConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontsConfiguration.swift; sourceTree = "<group>"; };
+		722717D51D7EEFE30037927E /* WinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinnerView.swift; sourceTree = "<group>"; };
 		728BF4DA1D79994F009D6CE0 /* EmptyMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyMarkerView.swift; sourceTree = "<group>"; };
 		728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossMarkerView.swift; sourceTree = "<group>"; };
 		8814A4841D6C8A260007537E /* tic-tac-toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tic-tac-toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				722717CF1D7EC3240037927E /* DrawView.swift */,
+				722717D51D7EEFE30037927E /* WinnerView.swift */,
 				8814A5271D7863BA0007537E /* MarkerView.swift */,
 				8814A5291D786D230007537E /* CircleMarkerView.swift */,
 				728BF4DC1D799B88009D6CE0 /* CrossMarkerView.swift */,
@@ -276,6 +281,7 @@
 				8865B3681D7D9DE500CC44D6 /* LineDrawer.swift */,
 				8814A4FF1D748EB60007537E /* BoardAnalyzer.swift */,
 				722717CD1D7EA81C0037927E /* ScaleAnimator.swift */,
+				722717D11D7EEAD40037927E /* FontsConfiguration.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -504,6 +510,8 @@
 				8814A4DA1D7072AD0007537E /* Board.swift in Sources */,
 				8814A4EA1D7072E40007537E /* Randomization.swift in Sources */,
 				8814A4E01D7072BD0007537E /* BoardView.swift in Sources */,
+				722717D21D7EEAD40037927E /* FontsConfiguration.swift in Sources */,
+				722717D61D7EEFE30037927E /* WinnerView.swift in Sources */,
 				8814A4E61D7072D30007537E /* BoardViewModel.swift in Sources */,
 				8814A4E71D7072D30007537E /* CellViewModel.swift in Sources */,
 				728BF4DB1D79994F009D6CE0 /* EmptyMarkerView.swift in Sources */,
