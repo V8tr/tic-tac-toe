@@ -11,7 +11,7 @@ import ReactiveCocoa
 import Result
 
 class GameViewModel {
-    static let gameOverAnimationDuration = 0.5
+    static let gameOverAnimationDuration = 0.4
     static let delayBetweenMoves = 0.5
 
     let boardViewModel: BoardViewModel

@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     
     private let viewModel: GameViewModel
     private var boardView: BoardView!
+    private let animator = ScaleAnimator()
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -44,7 +45,7 @@ class GameViewController: UIViewController {
         viewModel.gameOverSignal
             .observeOn(UIScheduler())
             .observeNext { [weak self] indexPaths in
-                let presentationDuration = 0.1
+                let presentationDuration = 0.0
                 self?.boardView.drawLineAnimated(indexPaths, duration: GameViewModel.gameOverAnimationDuration)
                 self?.openGameResultScreenAfterDelay(GameViewModel.gameOverAnimationDuration + presentationDuration)
         }
@@ -95,5 +96,13 @@ extension GameViewController: BoardViewDelegate {
 }
 
 extension GameViewController: UIViewControllerTransitioningDelegate {
-    
+    func animationControllerForPresentedController(
+        presented: UIViewController,
+        presentingController presenting: UIViewController,
+                             sourceController source: UIViewController) ->
+        UIViewControllerAnimatedTransitioning? {
+            animator.originalFrame = self.view.frame
+            animator.duration = GameViewModel.gameOverAnimationDuration
+            return animator
+    }
 }
