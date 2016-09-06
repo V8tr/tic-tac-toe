@@ -12,13 +12,6 @@ enum Marker: Equatable {
     case Circle
     case Cross
     
-    func imageName() -> String {
-        switch self {
-        case .Cross: return "cross"
-        case .Circle: return "circle"
-        }
-    }
-    
     func toString() -> String {
         switch self {
         case .Cross: return "╳"

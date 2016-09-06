@@ -11,13 +11,6 @@ import Foundation
 enum Selection {
     case Empty
     case Marked(Marker)
-    
-    func imageName() -> String? {
-        switch self {
-        case .Marked(let mark): return mark.imageName()
-        case .Empty: return nil
-        }
-    }
 }
 
 extension Selection: Equatable {

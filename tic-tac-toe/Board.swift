@@ -55,9 +55,6 @@ class Board {
     }
     
     func gameResult() -> GameResult {
-        let result = analyzer.gameResultForCells(cells)
-        print("game result \(result)")
-        print("=============================")
-        return result
+        return analyzer.gameResultForCells(cells)
     }
 }

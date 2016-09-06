@@ -45,6 +45,7 @@ class GameViewController: UIViewController {
         playerLabel.textColor = ColorsConfiguration.activePlayerName
         
         bindViewModel()
+        viewModel.nextTurn()
     }
     
     private func bindViewModel() {

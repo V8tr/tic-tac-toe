@@ -28,17 +28,6 @@ class GameResultViewModel {
         self.restartObserver = restartObserver
     }
     
-    var resultImage: UIImage? {
-        switch gameResult {
-        case .Win(let player, _):
-            return UIImage(named: player.marker.imageName())
-        case .Draw: 
-            return UIImage(named: "draw")
-        default:
-            return nil
-        }
-    }
-    
     func createWinnerView() -> UIView {
         switch gameResult {
         case .Win(let player, _): return WinnerView(player: player)
