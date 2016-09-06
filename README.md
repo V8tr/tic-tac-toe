@@ -12,5 +12,6 @@ Tic Tac Toe runs on iOS 9+ and requires Xcode 7.3 with Swift 2.2 to build.
 Features
 ------------
 * [ReactiveCocoa 4][reactive-cocoa]
+* MVVM
 * Naive AI
 * Custom animations and transitions
