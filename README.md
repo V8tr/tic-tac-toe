@@ -1,7 +1,7 @@
 <p align="center">
-  ![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_1.png)
-  ![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_2.png)
-  ![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_0.png)
+![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_1.png)
+![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_2.png)
+![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_0.png)
 </p>
 Tic Tac Toe
 =========
