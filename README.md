@@ -19,5 +19,5 @@ Features
 ------------
 * [ReactiveCocoa 4][reactive-cocoa]
 * MVVM
-* Playing against AI player
+* AI player
 * Custom animations and transitions
