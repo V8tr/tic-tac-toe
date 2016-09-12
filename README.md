@@ -1,6 +1,3 @@
-![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_1.png?style=centerme)
-![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_2.png?style=centerme)
-![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_0.png?style=centerme)
 <p align="center">
   <img src="https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_1.png">
   <img src="https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_2.png">
