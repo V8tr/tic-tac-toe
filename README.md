@@ -1,6 +1,3 @@
-#<p align="left" >
-#  <img src="https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_1.png" alt="AppAnalytics" title="AppAnalytics">
-#</p>
 ![alt screenshot](https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_1.png)
 Tic Tac Toe
 =========
