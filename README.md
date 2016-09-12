@@ -1,3 +1,6 @@
+<p align="center" >
+  <img src="https://github.com/V8tr/tic-tac-toe/blob/master/screenshot_gameplay_1.png" alt="AppAnalytics" title="AppAnalytics">
+</p>
 Tic Tac Toe
 =========
 Tic Tac Toe is a classic puzzle game also called Noughts and Crosses. The project has the Model-View-ViewModel (MVVM) architecture with [ReactiveCocoa 4][reactive-cocoa] and is written in Swift.
